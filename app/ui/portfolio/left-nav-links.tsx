@@ -3,6 +3,10 @@ import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
+  IdentificationIcon,
+  BriefcaseIcon,
+  UserIcon,
+  PuzzlePieceIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,13 +15,13 @@ import clsx from "clsx";
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: "Home", href: "/portfolio", icon: HomeIcon },
-  {
-    name: "Invoices",
-    href: "/portfolio/invoices",
-    icon: DocumentDuplicateIcon,
-  },
-  { name: "Customers", href: "/portfolio/customers", icon: UserGroupIcon },
+  // { name: "Home", href: "/portfolio", icon: HomeIcon },
+  // { name: "Invoices", href: "/portfolio/invoices", icon: DocumentDuplicateIcon, },
+  // { name: "Customers", href: "/portfolio/customers", icon: UserGroupIcon },
+  // { name: "About", href: "/portfolio/about", icon: IdentificationIcon },
+  { name: "professional-info", href: "/portfolio/professional-info", icon: BriefcaseIcon },
+  { name: "personal-info", href: "/portfolio/personal-info", icon: UserIcon },
+  { name: "hobbies-info", href: "/portfolio/hobbies-info", icon: PuzzlePieceIcon },
 ];
 
 export default function NavLinks() {
