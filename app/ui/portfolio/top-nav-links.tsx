@@ -35,9 +35,10 @@ export default function TopNavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              "flex h-[48px] grow items-center justify-center gap-2 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 border-solid border-2 border-lines-1",
+              "flex h-[48px] grow items-center justify-center gap-2 p-3 text-sm font-medium hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 border-solid hover:border-b-2 border-lines-1 hover:border-orange-600",
               {
-                "bg-sky-100 text-blue-600": pathname === link.href,
+                "border-b-2 border-orange-600 text-blue-600":
+                  pathname === link.href,
               }
             )}
           >
