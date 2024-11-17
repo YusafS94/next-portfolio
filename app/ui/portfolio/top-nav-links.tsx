@@ -12,15 +12,22 @@ import clsx from "clsx";
 // Depending on the size of the application, this would be stored in a database.
 const links = [
   {
-    name: "welcome",
+    name: "_hello",
     href: "/portfolio",
     icon: BriefcaseIcon,
+    styles: "border-l-2",
   },
-  { name: "about-me", href: "/portfolio/about-me", icon: UserIcon },
   {
-    name: "projects",
+    name: "_about-me",
+    href: "/portfolio/about-me",
+    icon: UserIcon,
+    styles: "border-l-2",
+  },
+  {
+    name: "_projects",
     href: "/portfolio/projects",
     icon: PuzzlePieceIcon,
+    styles: "border-l-2 border-r-2",
   },
 ];
 
@@ -35,14 +42,14 @@ export default function TopNavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              "flex h-[48px] grow items-center justify-center gap-2 p-3 text-sm font-medium hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 border-solid hover:border-b-2 border-lines-1 hover:border-orange-600",
+              `${link.styles} flex h-[48px] grow items-center justify-center gap-2 p-3 text-sm font-medium hover:text-secondary-4 md:flex-none md:justify-start md:p-2 md:px-3 border-solid hover:border-b-2 border-lines-1 hover:border-b-orange-600 hover:bg-lines-1`,
               {
-                "border-b-2 border-orange-600 text-blue-600":
+                "border-b-2 border-b-orange-600 text-secondary-4":
                   pathname === link.href,
               }
             )}
           >
-            <LinkIcon className="w-6" />
+            {/* <LinkIcon className="w-6" /> */}
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );
