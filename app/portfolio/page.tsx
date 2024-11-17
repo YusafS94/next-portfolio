@@ -5,7 +5,7 @@ export default function Page() {
         <div className="hero-top-text text-secondary-4">
           <p>Hi, I'm</p>
           <h1 className="text-6xl">Yusaf Saddiq</h1>
-          <p className="text-lg text-secondary-3"> >&nbsp;Web Developer</p>
+          <p className="text-lg text-secondary-3"> _Web Developer</p>
         </div>
         <div className="hero-bottom-text">
           <p>// front-end developer</p>
