@@ -6,7 +6,7 @@ import { PowerIcon, DocumentArrowDownIcon } from "@heroicons/react/24/outline";
 export default function AboutNav() {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2 border-r-2 border-lines-1">
-      <div className="flex grow flex-row justify-start space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+      <div className="flex grow flex-col justify-start space-x-2 md:space-x-0 md:space-y-2">
         <AboutNavLinks />
       </div>
     </div>

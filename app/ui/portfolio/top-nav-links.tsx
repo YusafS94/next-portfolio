@@ -15,19 +15,19 @@ const links = [
     name: "_hello",
     href: "/portfolio",
     icon: BriefcaseIcon,
-    styles: "border-l-2",
+    styles: "md:border-l-2",
   },
   {
     name: "_about-me",
-    href: "/portfolio/about-me",
+    href: "/portfolio/about-me/",
     icon: UserIcon,
-    styles: "border-l-2",
+    styles: "md:border-l-2",
   },
   {
     name: "_projects",
     href: "/portfolio/projects",
     icon: PuzzlePieceIcon,
-    styles: "border-l-2 border-r-2",
+    styles: "md:border-l-2 md:border-r-2",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function TopNavLinks() {
             )}
           >
             {/* <LinkIcon className="w-6" /> */}
-            <p className="hidden md:block">{link.name}</p>
+            <p className="">{link.name}</p>
           </Link>
         );
       })}

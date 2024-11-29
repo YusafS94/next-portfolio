@@ -10,13 +10,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     >
       <div className="h-screen p-4">
         <div className="border-1 border-lines-1 rounded-lg h-full bg-primary-2 text-secondary-1 flex flex-col">
-          <div className="topnav flex-none">
+          <nav className="topnav flex-none">
             <TopNav />
-          </div>
-          <div className="flex grow">{children}</div>
-          <div className="footer flex-none">
+          </nav>
+          <main className="flex grow">{children}</main>
+          <footer className="footer flex-none">
             <Footer />
-          </div>
+          </footer>
         </div>
       </div>
     </div>
