@@ -36,7 +36,7 @@ export default function AboutContent() {
         {/* Main Content Area */}
         <main style={{ padding: "20px", flex: 1 }}>
           {/* <h1 className="text-2xl">{content.experience.title}</h1> */}
-          {content[selectedSection]}
+          {content[selectedSection] || <p>Invalid section selected</p>}
         </main>
       </div>
     </>
