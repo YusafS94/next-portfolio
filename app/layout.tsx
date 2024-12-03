@@ -8,10 +8,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link
-        href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-        rel="stylesheet"
-      />
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
