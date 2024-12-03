@@ -24,7 +24,7 @@ export default function AboutContent() {
     ),
   };
   // State to track the selected nav item
-  const [selectedSection, setSelectedSection] = useState("experience");
+  const [selectedSection, setSelectedSection] = useState<keyof typeof content>("experience");
   return (
     <>
       <div className="flex flex-col md:flex-row">

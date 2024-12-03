@@ -1,8 +1,6 @@
 import AboutContent from "@/app/ui/portfolio/about-me/about-content";
+import { redirect } from "next/navigation";
 export default function Page() {
-  return (
-    <>
-      <AboutContent />
-    </>
-  );
+  redirect("/portfolio/about-me/professional-info");
+  return <></>;
 }
