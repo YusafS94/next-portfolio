@@ -1,10 +1,10 @@
 import config from "@/app/lib/developer.json";
-import AboutContent from "@/app/ui/portfolio/about-me/about-content";
+import AboutProfTabs from "@/app/ui/portfolio/about-me/about-professional-tabs";
 
 export default function Page() {
   return (
     <>
-      <AboutContent />
+      <AboutProfTabs />
     </>
   );
 }

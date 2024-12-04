@@ -1,52 +1,52 @@
 "use client";
 import { useState } from "react";
 
-export default function AboutProfTabs() {
+export default function AboutPersTabs() {
   // Content mapping for dynamic rendering
   const content = {
-    experience: (
+    bio: (
       <div>
-        <h2>Experience</h2>
-        <p>Details about your professional experience and skills.</p>
+        <h2>Bio</h2>
+        <p>Details about your personal life and life.</p>
       </div>
     ),
-    hard_skills: (
+    interests: (
       <div>
-        <h2>Hard Skills</h2>
-        <p>Details about your Hard Technical Skills.</p>
+        <h2>Interests</h2>
+        <p>Details about your interests.</p>
       </div>
     ),
-    soft_skills: (
+    education: (
       <div>
-        <h2>Soft Skills</h2>
-        <p>Details about your Soft Skills and interests.</p>
+        <h2>Education</h2>
+        <p>Details about your education and achievements.</p>
       </div>
     ),
   };
   // State to track the selected nav item
   const [selectedSection, setSelectedSection] =
-    useState<keyof typeof content>("experience");
+    useState<keyof typeof content>("bio");
   return (
     <>
       <div className="flex flex-col md:flex-row">
         <div className="flex flex-col items-start">
           <button
             className="border-b-2 border-r-2 border-t-2 border-lines-1 p-2 w-36"
-            onClick={() => setSelectedSection("experience")}
+            onClick={() => setSelectedSection("bio")}
           >
-            Experience
+            Bio
           </button>
           <button
             className="border-b-2 border-r-2 border-lines-1 p-2 w-36"
-            onClick={() => setSelectedSection("hard_skills")}
+            onClick={() => setSelectedSection("interests")}
           >
-            Hard Skills
+            Interests
           </button>
           <button
             className="border-b-2 border-r-2 border-lines-1 p-2 w-36"
-            onClick={() => setSelectedSection("soft_skills")}
+            onClick={() => setSelectedSection("education")}
           >
-            Soft Skills
+            Education
           </button>
         </div>
         {/* Main Content Area */}

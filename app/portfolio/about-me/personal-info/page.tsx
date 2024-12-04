@@ -1,9 +1,9 @@
 import config from "@/app/lib/developer.json";
-import AboutContent from "@/app/ui/portfolio/about-me/about-content";
+import AboutPersTabs from "@/app/ui/portfolio/about-me/about-personal-tabs";
 export default function Page() {
   return (
     <>
-      <AboutContent />
+      <AboutPersTabs />
     </>
   );
 }

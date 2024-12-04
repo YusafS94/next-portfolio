@@ -1,52 +1,40 @@
 "use client";
 import { useState } from "react";
 
-export default function AboutProfTabs() {
+export default function AboutHobTabs() {
   // Content mapping for dynamic rendering
   const content = {
-    experience: (
+    sports: (
       <div>
-        <h2>Experience</h2>
-        <p>Details about your professional experience and skills.</p>
+        <h2>Sports</h2>
+        <p>Details about your favourite sports.</p>
       </div>
     ),
-    hard_skills: (
+    favourite_games: (
       <div>
-        <h2>Hard Skills</h2>
-        <p>Details about your Hard Technical Skills.</p>
-      </div>
-    ),
-    soft_skills: (
-      <div>
-        <h2>Soft Skills</h2>
-        <p>Details about your Soft Skills and interests.</p>
+        <h2>Favourite Games</h2>
+        <p>Details about your favourite games or movies.</p>
       </div>
     ),
   };
   // State to track the selected nav item
   const [selectedSection, setSelectedSection] =
-    useState<keyof typeof content>("experience");
+    useState<keyof typeof content>("sports");
   return (
     <>
       <div className="flex flex-col md:flex-row">
         <div className="flex flex-col items-start">
           <button
             className="border-b-2 border-r-2 border-t-2 border-lines-1 p-2 w-36"
-            onClick={() => setSelectedSection("experience")}
+            onClick={() => setSelectedSection("sports")}
           >
-            Experience
+            Sports
           </button>
           <button
             className="border-b-2 border-r-2 border-lines-1 p-2 w-36"
-            onClick={() => setSelectedSection("hard_skills")}
+            onClick={() => setSelectedSection("favourite_games")}
           >
-            Hard Skills
-          </button>
-          <button
-            className="border-b-2 border-r-2 border-lines-1 p-2 w-36"
-            onClick={() => setSelectedSection("soft_skills")}
-          >
-            Soft Skills
+            Favourite Games
           </button>
         </div>
         {/* Main Content Area */}
