@@ -7,9 +7,19 @@ export default async function Page({
 }) {
   const id = (await params).id;
   const project = projects.find((project) => project.id === id);
+  if (!project) {
+    // Fallback UI for undefined project
+    return <div>Project not found</div>;
+  }
   return (
     <>
-      <Project {...project} />
+      {/* <Project {...project} /> */}
+      <Project
+        id={project.id}
+        title={project.title}
+        content={project.content}
+        date={project.date}
+      />
     </>
   );
 }
