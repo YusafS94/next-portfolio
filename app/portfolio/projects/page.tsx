@@ -18,7 +18,7 @@ export default function Page() {
           <p>projects grid</p>
           <div className="flex flex-wrap justify-center">
             {projects.map((project) => (
-              <div className="w-80 mx-2 rounded-lg border-2 p-2">
+              <div className="w-auto md:w-80 mx-2 rounded-lg border-2">
                 <Project key={project.id} {...project} />
               </div>
             ))}
