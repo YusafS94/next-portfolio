@@ -19,6 +19,7 @@ export default async function Page({
         title={project.title}
         content={project.content}
         date={project.date}
+        tags={project.tags}
       />
     </>
   );

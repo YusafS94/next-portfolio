@@ -16,7 +16,13 @@ export default function Page() {
         </div>
         <div className="w-9/12 border-2">
           <p>projects grid</p>
-          {projects.map((project) => <Project key={project.id} {...project} /> )}
+          <div className="flex flex-wrap justify-center">
+            {projects.map((project) => (
+              <div className="w-80 mx-2 rounded-lg border-2 p-2">
+                <Project key={project.id} {...project} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

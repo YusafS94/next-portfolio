@@ -151,6 +151,7 @@ const projects = [
     content:
       "Lorem ipsum dolor sit amet, consecutur adipiscing elit. Sed do ei",
     date: "01-01-2024",
+    tags: ["php", "sql"],
   },
   {
     id: "2",
@@ -158,6 +159,7 @@ const projects = [
     content:
       "Lorem ipsum dolor sit amet, consecutur adipiscing elit. Sed do ei",
     date: "02-01-2024",
+    tags: ["react", "tailwind"],
   },
   {
     id: "3",
@@ -165,6 +167,15 @@ const projects = [
     content:
       "Lorem ipsum dolor sit amet, consecutur adipiscing elit. Sed do ei",
     date: "03-01-2024",
+    tags: ["wordpress", "custom-theme"],
+  },
+  {
+    id: "4",
+    title: "Bury Defence Academy",
+    content:
+      "Lorem ipsum dolor sit amet, consecutur adipiscing elit. Sed do ei",
+    date: "04-01-2024",
+    tags: ["react", "next.js", "tailwind"],
   },
 ];
 
