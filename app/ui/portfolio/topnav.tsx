@@ -30,7 +30,7 @@ export default function TopNav() {
       </div>
       <Link
         className="flex justify-start items-center border-l-2 border-lines-1 md:pl-4"
-        href="#"
+        href="/portfolio/contact"
       >
         <div className="">
           <h1>_contact-me</h1>
