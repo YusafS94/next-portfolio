@@ -29,7 +29,7 @@ export default function Page() {
               style={{ padding: "8px", width: "300px" }}
             />
           </div>
-          <div className="output border-2 flex flex-col w-6/12 items-center justify-center">
+          <div className="output border-2 flex flex-col w-6/12 items-start justify-center pl-12">
             {/* Step 4: Display the input text */}
             <p style={{ marginTop: "20px", fontSize: "18px" }}>
               const name = <strong>{inputText}</strong>
@@ -43,6 +43,7 @@ export default function Page() {
               &nbsp;
               <span className="text-secondary-1">&#40;</span>
               <br />
+              &nbsp;&nbsp;
               <span className="text-accent-1">&#39;&#35;sendBtn&#39;</span>
               &nbsp;
               <span className="text-secondary-1">&#41;&#59;</span>
@@ -60,8 +61,7 @@ export default function Page() {
               &nbsp;
               <span className="text-secondary-3">&#58;</span>
               &nbsp;
-              <span className="text-secondary-1">&#34;&#34;</span>
-              {inputText}
+              <span className="text-secondary-1">&#34;{inputText}&#34;</span>
               <span className="text-secondary-3">&#44;</span>
               <br />
               &nbsp;&nbsp;
