@@ -33,40 +33,46 @@ export default function Page() {
         </div>
         <div className="border-2 flex w-9/12">
           <div className="input-form border-2 flex flex-col w-6/12 items-center justify-center">
-            <h2>Name:</h2>
-            {/* Step 3: Input field bound to state */}
-            <input
-              className="rounded-lg bg-primary-3"
-              type="text"
-              value={inputTextName}
-              onChange={handleNameInputChange}
-              placeholder="Start typing..."
-              style={{ padding: "8px", width: "300px" }}
-            />
-            <h2>Email:</h2>
-            {/* Step 3: Input field bound to state */}
-            <input
-              className="rounded-lg bg-primary-3"
-              type="text"
-              value={inputTextEmail}
-              onChange={handleEmailInputChange}
-              placeholder="Start typing..."
-              style={{ padding: "8px", width: "300px" }}
-            />
-            <h2>Message:</h2>
-            {/* Step 3: Input field bound to state */}
-            <input
-              className="rounded-lg bg-primary-3"
-              type="text"
-              value={inputTextMessage}
-              onChange={handleMessageInputChange}
-              placeholder="Start typing..."
-              style={{ padding: "8px", width: "300px" }}
-            />
+            <div className="text-left">
+              <h2>_name:</h2>
+              {/* Step 3: Input field bound to state */}
+              <input
+                className="rounded-lg bg-primary-3"
+                type="text"
+                value={inputTextName}
+                onChange={handleNameInputChange}
+                placeholder="Start typing..."
+                style={{ padding: "8px", width: "300px" }}
+              />
+            </div>
+            <div className="text-left">
+              <h2>_email:</h2>
+              {/* Step 3: Input field bound to state */}
+              <input
+                className="rounded-lg bg-primary-3"
+                type="text"
+                value={inputTextEmail}
+                onChange={handleEmailInputChange}
+                placeholder="Start typing..."
+                style={{ padding: "8px", width: "300px" }}
+              />
+            </div>
+            <div className="text-left">
+              <h2>_message:</h2>
+              {/* Step 3: Input field bound to state */}
+              <input
+                className="rounded-lg bg-primary-3"
+                type="text"
+                value={inputTextMessage}
+                onChange={handleMessageInputChange}
+                placeholder="Start typing..."
+                style={{ padding: "8px", width: "300px" }}
+              />
+            </div>
           </div>
           <div className="output flex w-6/12 items-center justify-center">
             {/* Step 4: Display the input text */}
-            <div className="border border-lines-1 rounded-xl p-4 bg-primary-1 flex flex-row gap-12 overflow-auto">
+            <div className="border border-lines-1 rounded-xl p-4 bg-primary-1 hidden md:flex flex-row gap-12 overflow-auto">
               <div className="numbers text-right">
                 <p>1</p>
                 <p>2</p>
