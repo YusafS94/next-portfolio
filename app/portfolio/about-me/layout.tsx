@@ -11,9 +11,9 @@ export default function Layout({
   return (
     <>
       <div className="flex grow flex-col md:flex-row">
-        <div>
+        {/* <div>
           <AboutNav />
-        </div>
+        </div> */}
         <div className="flex flex-col md:flex-row grow">
           <div className="flex w-full md:w-1/2 border-2">{children}</div>
           <div className="flex w-full md:w-1/2 border-2">{personal_info}</div>
