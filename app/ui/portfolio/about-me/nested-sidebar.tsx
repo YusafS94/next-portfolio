@@ -1,82 +1,97 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import { BriefcaseIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 type OuterNavItem = {
-  id: string
-  label: string
-}
+  id: string;
+  label: string;
+  icon: string;
+};
 
 type InnerNavItem = {
-  id: string
-  label: string
-}
+  id: string;
+  label: string;
+};
 
 type InnerNavItems = {
-  [key: string]: InnerNavItem[]
-}
+  [key: string]: InnerNavItem[];
+};
 
 type PlaceholderContent = {
   [key: string]: {
-    [key: string]: string
-  }
-}
+    [key: string]: string;
+  };
+};
 
 const outerNavItems: OuterNavItem[] = [
-  { id: 'professional-info', label: 'Professional Info' },
-  { id: 'personal-info', label: 'Personal Info' },
-  { id: 'hobbies-info', label: 'Hobbies Info' },
-]
+  {
+    id: "professional-info",
+    label: "Professional Info",
+    icon: "code-bracket-square",
+  },
+  {
+    id: "personal-info",
+    label: "Personal Info",
+    icon: "user",
+  },
+  {
+    id: "hobbies-info",
+    label: "Hobbies Info",
+    icon: "face-smile",
+  },
+];
 
 const innerNavItems: InnerNavItems = {
-  'professional-info': [
-    { id: 'experience', label: 'Experience' },
-    { id: 'hard-skills', label: 'Hard Skills' },
-    { id: 'soft-skills', label: 'Soft Skills' },
+  "professional-info": [
+    { id: "experience", label: "Experience" },
+    { id: "hard-skills", label: "Hard Skills" },
+    { id: "soft-skills", label: "Soft Skills" },
   ],
-  'personal-info': [
-    { id: 'bio', label: 'Bio' },
-    { id: 'interests', label: 'Interests' },
-    { id: 'education', label: 'Education' },
+  "personal-info": [
+    { id: "bio", label: "Bio" },
+    { id: "interests", label: "Interests" },
+    { id: "education", label: "Education" },
   ],
-  'hobbies-info': [
-    { id: 'sports', label: 'Sports' },
-    { id: 'favourite-games', label: 'Favourite Games' },
+  "hobbies-info": [
+    { id: "sports", label: "Sports" },
+    { id: "favourite-games", label: "Favourite Games" },
   ],
-}
+};
 
 const placeholderContent: PlaceholderContent = {
-  'professional-info': {
-    experience: 'Experience content goes here.',
-    'hard-skills': 'Hard skills content goes here.',
-    'soft-skills': 'Soft skills content goes here.',
+  "professional-info": {
+    experience: "Experience content goes here.",
+    "hard-skills": "Hard skills content goes here.",
+    "soft-skills": "Soft skills content goes here.",
   },
-  'personal-info': {
-    bio: 'Bio content goes here.',
-    interests: 'Interests content goes here.',
-    education: 'Education content goes here.',
+  "personal-info": {
+    bio: "Bio content goes here.",
+    interests: "Interests content goes here.",
+    education: "Education content goes here.",
   },
-  'hobbies-info': {
-    sports: 'Sports content goes here.',
-    'favourite-games': 'Favourite games content goes here.',
+  "hobbies-info": {
+    sports: "Sports content goes here.",
+    "favourite-games": "Favourite games content goes here.",
   },
-}
+};
 
 export default function CustomNestedSidebar() {
-  const [activeOuterItem, setActiveOuterItem] = useState<string | null>(null)
-  const [activeInnerItem, setActiveInnerItem] = useState<string | null>(null)
+  const [activeOuterItem, setActiveOuterItem] = useState<string | null>(null);
+  const [activeInnerItem, setActiveInnerItem] = useState<string | null>(null);
 
   const toggleOuterItem = (itemId: string) => {
-    setActiveOuterItem(prevState => prevState === itemId ? null : itemId)
-    setActiveInnerItem(null)
-  }
+    setActiveOuterItem((prevState) => (prevState === itemId ? null : itemId));
+    setActiveInnerItem(null);
+  };
 
   const selectInnerItem = (itemId: string) => {
-    setActiveInnerItem(itemId)
-  }
+    setActiveInnerItem(itemId);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="border">
       {/* Mobile Navigation (visible up to md breakpoint) */}
       <div className="md:hidden">
         <nav className="bg-gray-800 text-white p-4">
@@ -90,7 +105,7 @@ export default function CustomNestedSidebar() {
                 >
                   {outerItem.label}
                   <span className="text-xl">
-                    {activeOuterItem === outerItem.id ? '\u25B2' : '\u25BC'}
+                    {activeOuterItem === outerItem.id ? "\u25B2" : "\u25BC"}
                   </span>
                 </button>
                 {activeOuterItem === outerItem.id && (
@@ -100,7 +115,9 @@ export default function CustomNestedSidebar() {
                         <button
                           onClick={() => selectInnerItem(innerItem.id)}
                           className={`w-full text-left p-2 rounded ${
-                            activeInnerItem === innerItem.id ? 'bg-blue-600' : 'hover:bg-gray-700'
+                            activeInnerItem === innerItem.id
+                              ? "bg-blue-600"
+                              : "hover:bg-gray-700"
                           }`}
                         >
                           {innerItem.label}
@@ -126,20 +143,30 @@ export default function CustomNestedSidebar() {
       </div>
 
       {/* Desktop layout (visible from md breakpoint and above) */}
-      <div className="hidden md:flex md:h-screen">
+      <div className="hidden md:flex">
         {/* Outer navigation */}
-        <nav className="w-64 bg-gray-800 text-white p-4">
-          <h2 className="text-xl font-bold mb-4">Nested Sidebar</h2>
+        <nav className="bg-gray-800 text-white p-4">
+          {/* <h2 className="text-xl font-bold mb-4">Nested Sidebar</h2> */}
           <ul className="space-y-2">
             {outerNavItems.map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => toggleOuterItem(item.id)}
                   className={`w-full text-left p-2 rounded ${
-                    activeOuterItem === item.id ? 'bg-blue-600' : 'hover:bg-gray-700'
+                    activeOuterItem === item.id
+                      ? "bg-blue-600"
+                      : "hover:bg-gray-700"
                   }`}
                 >
-                  {item.label}
+                  <Image
+                    className="w-5 h-5 bg-white"
+                    src={`/heroicons-solid/${item.icon}.svg`}
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
+
+                  {/* {item.label} */}
                 </button>
               </li>
             ))}
@@ -148,9 +175,9 @@ export default function CustomNestedSidebar() {
 
         {/* Inner navigation */}
         {activeOuterItem && (
-          <nav className="w-64 bg-gray-200 p-4">
+          <nav className="bg-gray-200 p-4">
             <h3 className="text-lg font-semibold mb-4">
-              {outerNavItems.find(item => item.id === activeOuterItem)?.label}
+              {outerNavItems.find((item) => item.id === activeOuterItem)?.label}
             </h3>
             <ul className="space-y-2">
               {innerNavItems[activeOuterItem].map((item) => (
@@ -158,7 +185,9 @@ export default function CustomNestedSidebar() {
                   <button
                     onClick={() => selectInnerItem(item.id)}
                     className={`w-full text-left p-2 rounded ${
-                      activeInnerItem === item.id ? 'bg-blue-500 text-white' : 'hover:bg-gray-300'
+                      activeInnerItem === item.id
+                        ? "bg-blue-500 text-white"
+                        : "hover:bg-gray-300"
                     }`}
                   >
                     {item.label}
@@ -170,7 +199,7 @@ export default function CustomNestedSidebar() {
         )}
 
         {/* Desktop content area */}
-        <main className="flex-1 p-8">
+        <main className="flex-1">
           {activeInnerItem && activeOuterItem && (
             <div>
               <h1 className="text-2xl font-bold mb-4">{activeInnerItem}</h1>
@@ -180,6 +209,5 @@ export default function CustomNestedSidebar() {
         </main>
       </div>
     </div>
-  )
+  );
 }
-
