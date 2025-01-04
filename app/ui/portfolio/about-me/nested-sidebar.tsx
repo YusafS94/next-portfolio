@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { BriefcaseIcon } from "@heroicons/react/24/outline";
+// import { BriefcaseIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 type OuterNavItem = {
@@ -29,17 +29,17 @@ const outerNavItems: OuterNavItem[] = [
   {
     id: "professional-info",
     label: "Professional Info",
-    icon: "code-bracket-square",
+    icon: "code-bracket-square-light",
   },
   {
     id: "personal-info",
     label: "Personal Info",
-    icon: "user",
+    icon: "user-light",
   },
   {
     id: "hobbies-info",
     label: "Hobbies Info",
-    icon: "face-smile",
+    icon: "face-smile-light",
   },
 ];
 
@@ -143,23 +143,23 @@ export default function CustomNestedSidebar() {
       </div>
 
       {/* Desktop layout (visible from md breakpoint and above) */}
-      <div className="hidden md:flex">
+      <div className="hidden md:flex h-full">
         {/* Outer navigation */}
-        <nav className="bg-gray-800 text-white p-4">
+        <nav className="border border-lines-1 p-2">
           {/* <h2 className="text-xl font-bold mb-4">Nested Sidebar</h2> */}
           <ul className="space-y-2">
             {outerNavItems.map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => toggleOuterItem(item.id)}
-                  className={`w-full text-left p-2 rounded ${
+                  className={`w-full text-left p-2 ${
                     activeOuterItem === item.id
-                      ? "bg-blue-600"
+                      ? "border-l border-secondary-1"
                       : "hover:bg-gray-700"
                   }`}
                 >
                   <Image
-                    className="w-5 h-5 bg-white"
+                    className="w-6 h-6"
                     src={`/heroicons-solid/${item.icon}.svg`}
                     alt=""
                     width={20}
@@ -175,16 +175,18 @@ export default function CustomNestedSidebar() {
 
         {/* Inner navigation */}
         {activeOuterItem && (
-          <nav className="bg-gray-200 p-4">
-            <h3 className="text-lg font-semibold mb-4">
-              {outerNavItems.find((item) => item.id === activeOuterItem)?.label}
-            </h3>
+          <nav className="w-64">
+            <div className="border-b">
+              <p className="font-semibold">
+                {outerNavItems.find((item) => item.id === activeOuterItem)?.label}
+              </p>
+            </div>
             <ul className="space-y-2">
               {innerNavItems[activeOuterItem].map((item) => (
                 <li key={item.id}>
                   <button
                     onClick={() => selectInnerItem(item.id)}
-                    className={`w-full text-left p-2 rounded ${
+                    className={`w-full text-left rounded ${
                       activeInnerItem === item.id
                         ? "bg-blue-500 text-white"
                         : "hover:bg-gray-300"
