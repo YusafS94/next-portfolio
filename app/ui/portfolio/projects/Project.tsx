@@ -11,6 +11,7 @@ export default function Project( {id, title, content, date, tags}: { id: string,
                     <li key={tag}>{tag}</li>
                 ))}
             </ul>
+            <Link href={`/portfolio/projects`}>Back</Link>
         </div>
     )
 }
