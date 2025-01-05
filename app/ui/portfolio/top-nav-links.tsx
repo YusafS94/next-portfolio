@@ -15,19 +15,19 @@ const links = [
     name: "_hello",
     href: "/portfolio",
     icon: BriefcaseIcon,
-    styles: "md:border-l-2",
+    styles: "md:border-l",
   },
   {
     name: "_about-me",
-    href: "/portfolio/about-me/",
+    href: "/portfolio/about-me",
     icon: UserIcon,
-    styles: "md:border-l-2",
+    styles: "md:border-l",
   },
   {
     name: "_projects",
     href: "/portfolio/projects",
     icon: PuzzlePieceIcon,
-    styles: "md:border-l-2 md:border-r-2",
+    styles: "md:border-l md:border-r",
   },
 ];
 

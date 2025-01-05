@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-// import { BriefcaseIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 type OuterNavItem = {
@@ -62,7 +62,7 @@ const innerNavItems: InnerNavItems = {
 
 const placeholderContent: PlaceholderContent = {
   "professional-info": {
-    experience: "Experience content goes here.",
+    experience: "Experience content goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
     "hard-skills": "Hard skills content goes here.",
     "soft-skills": "Soft skills content goes here.",
   },
@@ -78,8 +78,12 @@ const placeholderContent: PlaceholderContent = {
 };
 
 export default function CustomNestedSidebar() {
-  const [activeOuterItem, setActiveOuterItem] = useState<string | null>(null);
-  const [activeInnerItem, setActiveInnerItem] = useState<string | null>(null);
+  const [activeOuterItem, setActiveOuterItem] = useState<string | null>(
+    "professional-info"
+  );
+  const [activeInnerItem, setActiveInnerItem] = useState<string | null>(
+    "experience"
+  );
 
   const toggleOuterItem = (itemId: string) => {
     setActiveOuterItem((prevState) => (prevState === itemId ? null : itemId));
@@ -91,7 +95,7 @@ export default function CustomNestedSidebar() {
   };
 
   return (
-    <div className="border">
+    <div className="border-r border-lines-1 w-full">
       {/* Mobile Navigation (visible up to md breakpoint) */}
       <div className="md:hidden">
         <nav className="bg-gray-800 text-white p-4">
@@ -145,17 +149,17 @@ export default function CustomNestedSidebar() {
       {/* Desktop layout (visible from md breakpoint and above) */}
       <div className="hidden md:flex h-full">
         {/* Outer navigation */}
-        <nav className="border border-lines-1 p-2">
+        <nav className="border-r border-lines-1">
           {/* <h2 className="text-xl font-bold mb-4">Nested Sidebar</h2> */}
-          <ul className="space-y-2">
+          <ul className="">
             {outerNavItems.map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => toggleOuterItem(item.id)}
-                  className={`w-full text-left p-2 ${
+                  className={`w-full text-left p-4 ${
                     activeOuterItem === item.id
-                      ? "border-l border-secondary-1"
-                      : "hover:bg-gray-700"
+                      ? "border-l-2 border-l-orange-600"
+                      : "hover:bg-lines-1"
                   }`}
                 >
                   <Image
@@ -175,21 +179,22 @@ export default function CustomNestedSidebar() {
 
         {/* Inner navigation */}
         {activeOuterItem && (
-          <nav className="w-64">
-            <div className="border-b">
-              <p className="font-semibold">
-                {outerNavItems.find((item) => item.id === activeOuterItem)?.label}
+          <nav className="w-56 border-r border-lines-1">
+            <div className="border-b border-lines-1 flex items-center justify-start gap-2 p-2">
+              <ChevronDownIcon className="w-4 h-4" />
+              <p className="">
+                {outerNavItems.find((item) => item.id === activeOuterItem)?.id}
               </p>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-2 border-b border-lines-1">
               {innerNavItems[activeOuterItem].map((item) => (
                 <li key={item.id}>
                   <button
                     onClick={() => selectInnerItem(item.id)}
-                    className={`w-full text-left rounded ${
+                    className={`w-full text-left rounded px-4 pt-2 ${
                       activeInnerItem === item.id
-                        ? "bg-blue-500 text-white"
-                        : "hover:bg-gray-300"
+                        ? "text-secondary-4"
+                        : "hover:text-white"
                     }`}
                   >
                     {item.label}
@@ -203,9 +208,30 @@ export default function CustomNestedSidebar() {
         {/* Desktop content area */}
         <main className="flex-1">
           {activeInnerItem && activeOuterItem && (
-            <div>
-              <h1 className="text-2xl font-bold mb-4">{activeInnerItem}</h1>
-              <p>{placeholderContent[activeOuterItem][activeInnerItem]}</p>
+            <div className="flex flex-col h-full">
+              <div className="border-b border-lines-1">
+                <div className="p-2 border-r border-lines-1 inline-block">
+                  <p className="inline">{activeInnerItem} </p>
+                  &nbsp; &nbsp; &#120;
+                </div>
+              </div>
+              <div className="flex gap-2 p-4 bg-primary-3 h-full">
+                <div className="flex flex-col items-end">
+                  <p>/*</p>
+                  <p>*</p>
+                  <p>*</p>
+                  <p>*</p>
+                  <p>*</p>
+                  <p>*</p>
+                  <p>*</p>
+                  
+                  <p>*</p>
+                  <p>/*</p>
+                </div>
+                <div className="">
+                  <p>{placeholderContent[activeOuterItem][activeInnerItem]}</p>
+                </div>
+              </div>
             </div>
           )}
         </main>

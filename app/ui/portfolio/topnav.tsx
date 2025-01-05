@@ -12,7 +12,7 @@ export default function TopNav() {
   return (
     <div
       id="topnav"
-      className="flex h-full flex-col md:flex-row px-3 md:px-2 border-b-2 border-lines-1"
+      className="flex h-full flex-col md:flex-row px-3 md:px-2 border-b border-lines-1"
     >
       <Link
         className="flex justify-start items-center md:w-2/12"
@@ -29,7 +29,7 @@ export default function TopNav() {
         <TopNavLinks />
       </div>
       <Link
-        className="flex justify-start items-center border-l-2 border-lines-1 md:pl-4"
+        className="flex justify-start items-center border-l border-lines-1 md:pl-4"
         href="/portfolio/contact"
       >
         <div className="">
