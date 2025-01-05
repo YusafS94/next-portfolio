@@ -22,7 +22,7 @@ interface ProjectsPageProps {
 // Technology type to ensure consistent usage
 type Technology = "React" | "WordPress" | "TypeScript" | "Node.js" | "PHP";
 
-const ProjectsPage: React.FC<ProjectsPageProps> = () => {
+const ProjectsPage = () => {
   // State with type annotation
   const [selectedFilters, setSelectedFilters] = useState<Technology[]>([]);
 
