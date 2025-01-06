@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, FolderIcon, FolderOpenIcon, FolderPlusIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 type OuterNavItem = {
@@ -112,7 +112,7 @@ export default function CustomNestedSidebar() {
                   onClick={() => toggleOuterItem(outerItem.id)}
                   className="w-full text-left p-2 rounded flex justify-between items-center hover:bg-gray-700"
                 >
-                  {outerItem.label}
+                  {outerItem.id}
                   <span className="text-xl">
                     {activeOuterItem === outerItem.id ? "\u25B2" : "\u25BC"}
                   </span>
@@ -129,7 +129,7 @@ export default function CustomNestedSidebar() {
                               : "hover:bg-gray-700"
                           }`}
                         >
-                          {innerItem.label}
+                          {innerItem.id}
                         </button>
                       </li>
                     ))}
@@ -196,13 +196,16 @@ export default function CustomNestedSidebar() {
                 <li key={innerItem.id}>
                   <button
                     onClick={() => toggleInnerItem(innerItem.id)}
-                    className={`w-full text-left rounded px-4 pt-2 ${
+                    className={`flex gap-2 items-center w-full text-left rounded px-4 pt-2 ${
                       activeInnerItem === innerItem.id
                         ? "text-secondary-4"
                         : "hover:text-white"
                     }`}
                   >
-                    {innerItem.label}
+                    <span className="text-xl">
+                    {activeInnerItem === innerItem.id ? <FolderIcon className="w-4 h-4" /> : <FolderPlusIcon className="w-4 h-4" />}
+                  </span>
+                    {innerItem.id}
                   </button>
                 </li>
               ))}
