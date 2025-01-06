@@ -90,6 +90,11 @@ export default function CustomNestedSidebar() {
     setActiveInnerItem(null);
   };
 
+  const toggleInnerItem = (itemId: string) => {
+    setActiveInnerItem((prevState) => (prevState === itemId ? null : itemId));
+    // setActiveInnerItem(null);
+  };
+
   const selectInnerItem = (itemId: string) => {
     setActiveInnerItem(itemId);
   };
@@ -117,7 +122,7 @@ export default function CustomNestedSidebar() {
                     {innerNavItems[outerItem.id].map((innerItem) => (
                       <li key={innerItem.id}>
                         <button
-                          onClick={() => selectInnerItem(innerItem.id)}
+                          onClick={() => toggleInnerItem(innerItem.id)}
                           className={`w-full text-left p-2 rounded ${
                             activeInnerItem === innerItem.id
                               ? "bg-blue-600"
@@ -187,17 +192,17 @@ export default function CustomNestedSidebar() {
               </p>
             </div>
             <ul className="space-y-2 border-b border-lines-1">
-              {innerNavItems[activeOuterItem].map((item) => (
-                <li key={item.id}>
+              {innerNavItems[activeOuterItem].map((innerItem) => (
+                <li key={innerItem.id}>
                   <button
-                    onClick={() => selectInnerItem(item.id)}
+                    onClick={() => toggleInnerItem(innerItem.id)}
                     className={`w-full text-left rounded px-4 pt-2 ${
-                      activeInnerItem === item.id
+                      activeInnerItem === innerItem.id
                         ? "text-secondary-4"
                         : "hover:text-white"
                     }`}
                   >
-                    {item.label}
+                    {innerItem.label}
                   </button>
                 </li>
               ))}
