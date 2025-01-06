@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDownIcon, FolderIcon, FolderOpenIcon, FolderPlusIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  FolderIcon,
+  FolderOpenIcon,
+  FolderPlusIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 type OuterNavItem = {
@@ -62,7 +67,8 @@ const innerNavItems: InnerNavItems = {
 
 const placeholderContent: PlaceholderContent = {
   "professional-info": {
-    experience: "Experience content goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
+    experience:
+      "Experience content goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
     "hard-skills": "Hard skills content goes here.",
     "soft-skills": "Soft skills content goes here.",
   },
@@ -104,18 +110,23 @@ export default function CustomNestedSidebar() {
       {/* Mobile Navigation (visible up to md breakpoint) */}
       <div className="md:hidden">
         <nav className="bg-gray-800 text-white p-4">
-          <h2 className="text-xl font-bold mb-4">Nested Sidebar</h2>
+          {/* <h2 className="text-xl font-bold mb-4">Nested Sidebar</h2> */}
           <ul className="space-y-2">
-            {outerNavItems.map((outerItem) => (
+            {outerNavItems.map((outerItem, item) => (
               <li key={outerItem.id}>
                 <button
                   onClick={() => toggleOuterItem(outerItem.id)}
                   className="w-full text-left p-2 rounded flex justify-between items-center hover:bg-gray-700"
                 >
                   {outerItem.id}
-                  <span className="text-xl">
-                    {activeOuterItem === outerItem.id ? "\u25B2" : "\u25BC"}
-                  </span>
+
+                  <Image
+                    className="w-6 h-6"
+                    src={`/heroicons-solid/${outerItem.icon}.svg`}
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
                 </button>
                 {activeOuterItem === outerItem.id && (
                   <ul className="ml-4 mt-2 space-y-2">
@@ -123,12 +134,19 @@ export default function CustomNestedSidebar() {
                       <li key={innerItem.id}>
                         <button
                           onClick={() => toggleInnerItem(innerItem.id)}
-                          className={`w-full text-left p-2 rounded ${
+                          className={`w-full text-left p-2 rounded flex items-center gap-2 ${
                             activeInnerItem === innerItem.id
-                              ? "bg-blue-600"
+                              ? "border-b border-accent-1 rounded-none"
                               : "hover:bg-gray-700"
                           }`}
                         >
+                          <span className="text-xl">
+                            {activeInnerItem === innerItem.id ? (
+                              <FolderIcon className="w-4 h-4 text-accent-2" />
+                            ) : (
+                              <FolderPlusIcon className="w-4 h-4 text-accent-1" />
+                            )}
+                          </span>
                           {innerItem.id}
                         </button>
                       </li>
@@ -187,9 +205,9 @@ export default function CustomNestedSidebar() {
           <nav className="w-56 border-r border-lines-1 bg-primary-2">
             <div className="border-b border-lines-1 flex items-center justify-start gap-2 p-2">
               <ChevronDownIcon className="w-4 h-4" />
-              <p className="">
+              <span className="">
                 {outerNavItems.find((item) => item.id === activeOuterItem)?.id}
-              </p>
+              </span>
             </div>
             <ul className="space-y-2 border-b border-lines-1">
               {innerNavItems[activeOuterItem].map((innerItem) => (
@@ -203,8 +221,12 @@ export default function CustomNestedSidebar() {
                     }`}
                   >
                     <span className="text-xl">
-                    {activeInnerItem === innerItem.id ? <FolderIcon className="w-4 h-4" /> : <FolderPlusIcon className="w-4 h-4" />}
-                  </span>
+                      {activeInnerItem === innerItem.id ? (
+                        <FolderIcon className="w-4 h-4 text-accent-2" />
+                      ) : (
+                        <FolderPlusIcon className="w-4 h-4 text-accent-1" />
+                      )}
+                    </span>
                     {innerItem.id}
                   </button>
                 </li>
@@ -232,7 +254,7 @@ export default function CustomNestedSidebar() {
                   <p>*</p>
                   <p>*</p>
                   <p>*</p>
-                  
+
                   <p>*</p>
                   <p>/*</p>
                 </div>
