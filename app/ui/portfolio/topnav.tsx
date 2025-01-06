@@ -12,13 +12,13 @@ export default function TopNav() {
   return (
     <div
       id="topnav"
-      className="flex h-full flex-col md:flex-row border-b border-lines-1"
+      className="hidden md:flex h-full flex-col md:flex-row border-b border-lines-1"
     >
       <Link
         className="flex justify-start items-center md:w-2/12"
         href="/portfolio"
       >
-        <div className="rounded-tl-lg hover:bg-lines-1 w-full h-full pl-4 flex justify-start items-center text-center">
+        <div className="rounded-tl-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full pl-4 flex justify-start items-center text-center">
           <h1>yusaf-saddiq</h1>
         </div>
       </Link>
@@ -32,7 +32,7 @@ export default function TopNav() {
         className="flex justify-start items-center border-l border-lines-1"
         href="/portfolio/contact"
       >
-        <div className="rounded-tr-lg hover:bg-lines-1 w-full h-full px-4 flex justify-center items-center text-center">
+        <div className="rounded-tr-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full px-4 flex justify-center items-center text-center">
           <h1>_contact-me</h1>
         </div>
       </Link>
