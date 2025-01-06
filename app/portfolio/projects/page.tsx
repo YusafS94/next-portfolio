@@ -28,10 +28,30 @@ const ProjectsPage = () => {
 
   // Sample projects array with type annotation
   const projects: Project[] = [
-    { id: 1, title: "Project 1", technologies: ["React", "TypeScript"], url: "/portfolio/projects/project/1" },
-    { id: 2, title: "Project 2", technologies: ["WordPress"] , url: "/portfolio/projects/project/2"},
-    { id: 3, title: "Project 3", technologies: ["React", "Node.js"] , url: "/portfolio/projects/project/3"},
-    { id: 4, title: "Project 4", technologies: ["WordPress", "PHP"] , url: "/portfolio/projects/project/4"},
+    {
+      id: 1,
+      title: "Project 1",
+      technologies: ["React", "TypeScript"],
+      url: "/portfolio/projects/project/1",
+    },
+    {
+      id: 2,
+      title: "Project 2",
+      technologies: ["WordPress"],
+      url: "/portfolio/projects/project/2",
+    },
+    {
+      id: 3,
+      title: "Project 3",
+      technologies: ["React", "Node.js"],
+      url: "/portfolio/projects/project/3",
+    },
+    {
+      id: 4,
+      title: "Project 4",
+      technologies: ["WordPress", "PHP"],
+      url: "/portfolio/projects/project/4",
+    },
   ];
 
   // Filter options with type annotation
@@ -68,7 +88,7 @@ const ProjectsPage = () => {
   return (
     <section className="flex flex-col md:flex-row grow">
       {/* Filters Column */}
-      <div className="w-3/12 p-4 border-2">
+      <div className="md:w-3/12 p-4 border-2">
         <h2 className="text-lg font-bold mb-4">Filters</h2>
         <div className="space-y-2">
           {filterOptions.map((technology: Technology) => (
@@ -86,26 +106,33 @@ const ProjectsPage = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="w-9/12 p-4 border-2">
+      <div className="md:w-9/12 p-4 border-2">
         <h2 className="text-lg font-bold mb-4">
           Projects ({filteredProjects.length})
         </h2>
         <div className="flex flex-wrap justify-center gap-4">
           {filteredProjects.map((project: Project) => (
-            <div key={project.id} className="w-80 p-4 rounded-lg border-2">
-              <h3 className="font-bold">{project.title}</h3>
-              <Link href={`/portfolio/projects/project/${project.id}`}> Link </Link>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {project.technologies.map((tech: string) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 text-sm bg-gray-100 rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
+            <Link
+              className="hover:bg-lines-1"
+              href={`/portfolio/projects/project/${project.id}`}
+            >
+              {""}
+
+              <div key={project.id} className="w-80 p-4 rounded-lg border-2">
+                <h3 className="font-bold">{project.title}</h3>
+
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {project.technologies.map((tech: string) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-sm bg-gray-100 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
