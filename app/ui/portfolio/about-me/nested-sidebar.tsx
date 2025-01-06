@@ -95,7 +95,7 @@ export default function CustomNestedSidebar() {
   };
 
   return (
-    <div className="border-r border-lines-1 w-full">
+    <div className="border-r border-lines-1 bg-primary-3 w-full">
       {/* Mobile Navigation (visible up to md breakpoint) */}
       <div className="md:hidden">
         <nav className="bg-gray-800 text-white p-4">
@@ -147,9 +147,9 @@ export default function CustomNestedSidebar() {
       </div>
 
       {/* Desktop layout (visible from md breakpoint and above) */}
-      <div className="hidden md:flex h-full">
+      <div className="hidden md:flex h-full bg-primary-3">
         {/* Outer navigation */}
-        <nav className="border-r border-lines-1">
+        <nav className="border-r border-lines-1 bg-primary-2">
           {/* <h2 className="text-xl font-bold mb-4">Nested Sidebar</h2> */}
           <ul className="">
             {outerNavItems.map((item) => (
@@ -179,7 +179,7 @@ export default function CustomNestedSidebar() {
 
         {/* Inner navigation */}
         {activeOuterItem && (
-          <nav className="w-56 border-r border-lines-1">
+          <nav className="w-56 border-r border-lines-1 bg-primary-2">
             <div className="border-b border-lines-1 flex items-center justify-start gap-2 p-2">
               <ChevronDownIcon className="w-4 h-4" />
               <p className="">
@@ -210,7 +210,7 @@ export default function CustomNestedSidebar() {
           {activeInnerItem && activeOuterItem && (
             <div className="flex flex-col h-full">
               <div className="border-b border-lines-1">
-                <div className="p-2 border-r border-lines-1 inline-block">
+                <div className="p-2 border-r border-lines-1 bg-primary-2 inline-block">
                   <p className="inline">{activeInnerItem} </p>
                   &nbsp; &nbsp; &#120;
                 </div>

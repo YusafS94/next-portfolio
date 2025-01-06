@@ -19,7 +19,7 @@ export default function TopNav() {
         href="/portfolio"
       >
         <div className="rounded-tl-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full pl-4 flex justify-start items-center text-center">
-          <h1>yusaf-saddiq</h1>
+          <h1>logo</h1>
         </div>
       </Link>
       <div className="self-end md:hidden w-2/12" id="hamburger-button">
