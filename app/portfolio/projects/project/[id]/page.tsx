@@ -13,14 +13,18 @@ export default async function Page({
   }
   return (
     <>
-      {/* <Project {...project} /> */}
-      <Project
+      <Project {...project} />
+      {/* <Project
         id={project.id}
         title={project.title}
         content={project.content}
         date={project.date}
         tags={project.tags}
-      />
+        image1={project.image1}
+        image2={project.image2}
+        image3={project.image3}
+        image4={project.image4}
+      /> */}
     </>
   );
 }
