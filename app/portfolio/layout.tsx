@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <nav className="topnav flex-none">
             <TopNav />
           </nav>
-          <main className="flex grow">{children}</main>
+          <main className="flex grow overflow-hidden">{children}</main>
           <footer className="footer flex-none">
             <Footer />
           </footer>
