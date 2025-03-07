@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 // Define interfaces for our data structures
 interface Project {
@@ -11,6 +12,8 @@ interface Project {
   description?: string;
   imageUrl?: string;
   url?: string;
+  link: string;
+  github: string;
 }
 
 // Props interface if we need to pass props to this component
@@ -32,25 +35,41 @@ const ProjectsPage = () => {
       id: 1,
       title: "Project 1",
       technologies: ["React", "TypeScript"],
+      description: "This is a sample project description",
+      imageUrl: "/images/desktop-dashboard.jpg",
       url: "/portfolio/projects/project/1",
+      link: "https://github.com/YusafS94",
+      github: "https://github.com/YusafS94",
     },
     {
       id: 2,
       title: "Project 2",
       technologies: ["WordPress"],
+      description: "This is a sample project description",
+      imageUrl: "/images/desktop-dashboard.jpg",
       url: "/portfolio/projects/project/2",
+      link: "https://github.com/YusafS94",
+      github: "https://github.com/YusafS94",
     },
     {
       id: 3,
       title: "Project 3",
       technologies: ["React", "Node.js"],
+      description: "This is a sample project description",
+      imageUrl: "/images/desktop-dashboard.jpg",
       url: "/portfolio/projects/project/3",
+      link: "https://github.com/YusafS94",
+      github: "https://github.com/YusafS94",
     },
     {
       id: 4,
       title: "Project 4",
       technologies: ["WordPress", "PHP"],
+      description: "This is a sample project description",
+      imageUrl: "/images/desktop-dashboard.jpg",
       url: "/portfolio/projects/project/4",
+      link: "https://github.com/YusafS94",
+      github: "https://github.com/YusafS94",
     },
   ];
 
@@ -106,21 +125,25 @@ const ProjectsPage = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="md:w-9/12 p-4 border-2">
+      <div className="md:w-9/12 p-4 border-2 overflow-scroll">
         <h2 className="text-lg font-bold mb-4">
           Projects ({filteredProjects.length})
         </h2>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap">
           {filteredProjects.map((project: Project) => (
             <Link
-              className="hover:bg-lines-1"
-              href={`/portfolio/projects/project/${project.id}`}
+              className="w-full lg:w-4/12"
+              href={project.github}
+              target="_blank"
             >
               {""}
 
-              <div key={project.id} className="w-80 p-4 rounded-lg border-2">
+              <div
+                key={project.id}
+                className="hover:bg-lines-1 h-80 p-4 m-2 rounded-lg border-2 flex flex-col justify-around"
+              >
                 <h3 className="font-bold">{project.title}</h3>
-
+                <p className="text-sm">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {project.technologies.map((tech: string) => (
                     <span
@@ -130,6 +153,15 @@ const ProjectsPage = () => {
                       {tech}
                     </span>
                   ))}
+                </div>
+                <div className="h-auto max-h-full">
+                  <Image
+                    src={project.imageUrl || "/images/fallback.jpg"}
+                    alt="Project Image"
+                    width={200}
+                    height={0}
+                    style={{ width: "80%", height: "auto", justifySelf: "center" }}
+                  />
                 </div>
               </div>
             </Link>
