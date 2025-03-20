@@ -109,14 +109,14 @@ export default function CustomNestedSidebar() {
     <div className="border-r border-lines-1 bg-primary-3 w-full">
       {/* Mobile Navigation (visible up to md breakpoint) */}
       <div className="md:hidden">
-        <nav className="bg-gray-800 text-white p-4">
+        <nav className="text-white p-4">
           {/* <h2 className="text-xl font-bold mb-4">Nested Sidebar</h2> */}
           <ul className="space-y-2">
             {outerNavItems.map((outerItem, item) => (
               <li key={outerItem.id}>
                 <button
                   onClick={() => toggleOuterItem(outerItem.id)}
-                  className="w-full text-left p-2 rounded flex justify-between items-center hover:bg-gray-700"
+                  className="w-full text-left p-2 rounded flex justify-between items-center bg-gray-800 hover:bg-gray-700"
                 >
                   {outerItem.id}
 

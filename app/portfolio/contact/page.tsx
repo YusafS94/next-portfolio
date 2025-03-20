@@ -26,13 +26,13 @@ export default function Page() {
   };
 
   return (
-    <div className="border-2 w-full">
-      <div className="flex flex-row grow border-2 border-red-700 p-2 h-full">
-        <div className="border-2 w-3/12">
+    <div className="w-full">
+      <div className="flex flex-col md:flex-row grow h-full">
+        <div className="border border-lines-1 md:w-3/12">
           <p>Contact info</p>
         </div>
-        <div className="border-2 flex w-9/12">
-          <div className="input-form border-2 flex flex-col w-6/12 items-center justify-center">
+        <div className="border border-lines-1 flex flex-col lg:flex-row md:w-9/12">
+          <div className="input-form flex flex-col lg:w-6/12 items-center justify-center">
             <div className="text-left">
               <h2>_name:</h2>
               {/* Step 3: Input field bound to state */}
@@ -70,7 +70,7 @@ export default function Page() {
               />
             </div>
           </div>
-          <div className="output flex w-6/12 items-center justify-center">
+          <div className="output flex lg:w-6/12 items-center justify-center">
             {/* Step 4: Display the input text */}
             <div className="border border-lines-1 rounded-xl p-4 bg-primary-1 hidden md:flex flex-row gap-12 overflow-auto">
               <div className="numbers text-right">
