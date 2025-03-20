@@ -28,10 +28,10 @@ export default function Page() {
   return (
     <div className="w-full">
       <div className="flex flex-col md:flex-row grow h-full">
-        <div className="border border-lines-1 md:w-3/12">
+        <div className="border-r border-lines-1 md:w-3/12">
           <p>Contact info</p>
         </div>
-        <div className="border border-lines-1 flex flex-col lg:flex-row md:w-9/12">
+        <div className="flex flex-col lg:flex-row md:w-9/12">
           <div className="input-form flex flex-col lg:w-6/12 items-center justify-center">
             <div className="text-left">
               <h2>_name:</h2>
