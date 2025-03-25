@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import TopNavLinks from "@/app/ui/portfolio/top-nav-links";
-import NavMenu from "@/app/ui/portfolio/NavMenu"; // Mobile Hamburger Menu
+import NavMenu from "@/app/ui/portfolio/mobilenav"; // Mobile Hamburger Menu
 import { Bars2Icon } from "@heroicons/react/24/outline"; // Hamburger Icon
 
 export default function TopNav() {
