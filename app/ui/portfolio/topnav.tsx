@@ -3,10 +3,13 @@ import { useState } from "react";
 import Link from "next/link";
 import TopNavLinks from "@/app/ui/portfolio/top-nav-links";
 import NavMenu from "@/app/ui/portfolio/mobilenav"; // Mobile Hamburger Menu
+import { usePathname } from "next/navigation";
 import { Bars2Icon } from "@heroicons/react/24/outline"; // Hamburger Icon
+import clsx from "clsx";
 
 export default function TopNav() {
   const [isOpen, setIsOpen] = useState(false); // State to toggle TopNavLinks
+  const pathname = usePathname(); // Get the current pathname
 
   return (
     <div
@@ -27,7 +30,7 @@ export default function TopNav() {
       <div className="self-end md:hidden w-2/12">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-5 h-5 text-gray-800"
+          className="w-8 h-8 text-secondary-4"
         >
           <Bars2Icon />
         </button>
@@ -40,6 +43,18 @@ export default function TopNav() {
         } md:flex`}
       >
         <TopNavLinks />
+        <Link
+        className={clsx("flex justify-start items-center border-l border-lines-1", {
+          "border-b-2 border-b-orange-600 text-secondary-4":
+            pathname === "/portfolio/contact",
+        })}
+        href="/portfolio/contact"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <div className="md:hidden text-sm rounded-tr-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full px-4 flex justify-center items-center text-center">
+          <p>_contact-me</p>
+        </div>
+      </Link>
       </div>
 
       {/* Mobile Hamburger Menu (Separate from TopNavLinks) */}
@@ -47,7 +62,7 @@ export default function TopNav() {
 
       {/* Contact Link */}
       <Link
-        className="flex justify-start items-center border-l border-lines-1"
+        className="hidden md:flex justify-start items-center border-l border-lines-1"
         href="/portfolio/contact"
       >
         <div className="rounded-tr-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full px-4 flex justify-center items-center text-center">

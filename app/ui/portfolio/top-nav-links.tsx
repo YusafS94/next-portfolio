@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import clsx from "clsx";
 
 // Map of links to display in the side navigation.
@@ -33,6 +34,7 @@ const links = [
 
 export default function TopNavLinks() {
   const pathname = usePathname();
+  // const [isOpen, setIsOpen] = useState(false); // State to toggle TopNavLinks
   return (
     <>
       {links.map((link) => {
@@ -41,6 +43,7 @@ export default function TopNavLinks() {
           <Link
             key={link.name}
             href={link.href}
+            onClick={() => setIsOpen(!isOpen)} // Close the menu when a link is clicked
             className={clsx(
               `${link.styles} flex h-[48px] grow items-center justify-center gap-2 p-3 text-sm font-medium hover:text-secondary-4 md:flex-none md:justify-start md:p-2 md:px-3 border-solid hover:border-b-2 border-lines-1 hover:border-b-orange-600 hover:bg-lines-1`,
               {
