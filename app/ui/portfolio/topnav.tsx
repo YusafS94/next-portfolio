@@ -16,24 +16,25 @@ export default function TopNav() {
       id="topnav"
       className="md:flex h-full flex-col md:flex-row border-b border-lines-1"
     >
-      {/* Logo */}
-      <Link
-        className="flex justify-start items-center md:w-2/12"
-        href="/portfolio"
-      >
-        <div className="rounded-tl-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full pl-4 flex justify-start items-center text-center">
-          <h1>logo</h1>
-        </div>
-      </Link>
-
-      {/* Hamburger Icon (Visible only on small screens) */}
-      <div className="self-end md:hidden w-2/12">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="w-8 h-8 text-secondary-4"
+      <div className="flex justify-between p-4">
+        {/* Logo */}
+        <Link
+          className="flex justify-start items-center md:w-2/12"
+          href="/portfolio"
         >
-          <Bars2Icon />
-        </button>
+          <div className="rounded-tl-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full md:pr-20 flex justify-start items-center text-center">
+            <h1>logo</h1>
+          </div>
+        </Link>
+        {/* Hamburger Icon (Visible only on small screens) */}
+        <div className="self-end md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-8 h-8 text-secondary-4"
+          >
+            <Bars2Icon />
+          </button>
+        </div>
       </div>
 
       {/* Navigation Links (Toggles on small screens, always visible on md+) */}
@@ -44,17 +45,20 @@ export default function TopNav() {
       >
         <TopNavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
         <Link
-        className={clsx("flex justify-start items-center border-l border-lines-1", {
-          "border-b-2 border-b-orange-600 text-secondary-4":
-            pathname === "/portfolio/contact",
-        })}
-        href="/portfolio/contact"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <div className="md:hidden text-sm rounded-tr-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full px-4 flex justify-center items-center text-center">
-          <p>_contact-me</p>
-        </div>
-      </Link>
+          className={clsx(
+            "flex justify-start items-center border-l border-lines-1",
+            {
+              "border-b-2 border-b-orange-600 text-secondary-4":
+                pathname === "/portfolio/contact",
+            }
+          )}
+          href="/portfolio/contact"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div className="md:hidden text-sm rounded-tr-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full px-4 flex justify-center items-center text-center">
+            <p>_contact-me</p>
+          </div>
+        </Link>
       </div>
 
       {/* Mobile Hamburger Menu (Separate from TopNavLinks) */}
