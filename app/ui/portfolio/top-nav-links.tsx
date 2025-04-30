@@ -32,7 +32,12 @@ const links = [
   },
 ];
 
-export default function TopNavLinks() {
+type TopNavLinksProps = {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+};
+
+export default function TopNavLinks({ isOpen, setIsOpen }: TopNavLinksProps) {
   const pathname = usePathname();
   // const [isOpen, setIsOpen] = useState(false); // State to toggle TopNavLinks
   return (

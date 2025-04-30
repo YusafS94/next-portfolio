@@ -42,7 +42,7 @@ export default function TopNav() {
           isOpen ? "block" : "hidden"
         } md:flex`}
       >
-        <TopNavLinks />
+        <TopNavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
         <Link
         className={clsx("flex justify-start items-center border-l border-lines-1", {
           "border-b-2 border-b-orange-600 text-secondary-4":
