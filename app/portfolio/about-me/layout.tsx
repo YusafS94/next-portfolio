@@ -1,4 +1,3 @@
-import AboutNav from "@/app/ui/portfolio/about-me/aboutnav";
 // const config = require('@/app/lib/developer.json')
 
 export default function Layout({
