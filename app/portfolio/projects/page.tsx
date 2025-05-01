@@ -107,7 +107,7 @@ const ProjectsPage = () => {
   return (
     <section className="flex flex-col md:flex-row grow">
       {/* Filters Column */}
-      <div className="md:w-3/12 p-4 border-2">
+      <div className="md:w-3/12 p-4 border-r border-lines-1">
         <h2 className="text-lg font-bold mb-4">Filters</h2>
         <div className="space-y-2">
           {filterOptions.map((technology: Technology) => (
@@ -125,7 +125,7 @@ const ProjectsPage = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="md:w-9/12 p-4 border-2 overflow-scroll">
+      <div className="md:w-9/12 p-4 overflow-scroll">
         <h2 className="text-lg font-bold mb-4">
           Projects ({filteredProjects.length})
         </h2>
@@ -140,7 +140,7 @@ const ProjectsPage = () => {
 
               <div
                 key={project.id}
-                className="hover:bg-lines-1 h-80 p-4 m-2 rounded-lg border-2 flex flex-col justify-around"
+                className="hover:bg-lines-1 h-80 p-4 m-2 rounded-lg border border-lines-1 flex flex-col justify-around"
               >
                 <h3 className="font-bold">{project.title}</h3>
                 <p className="text-sm">{project.description}</p>
