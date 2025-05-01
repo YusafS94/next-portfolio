@@ -1,5 +1,10 @@
 "use client";
 import { useState } from "react";
+import {
+  EnvelopeIcon,
+  BriefcaseIcon,
+  LinkIcon,
+} from "@heroicons/react/24/outline";
 
 export default function Page() {
   // Step 1: State to store the input value
@@ -28,8 +33,55 @@ export default function Page() {
   return (
     <div className="w-full">
       <div className="flex flex-col md:flex-row grow h-full">
-        <div className="border-r border-lines-1 md:w-3/12">
-          <p>Contact info</p>
+        <div className="flex flex-col gap-4 border-r border-lines-1 md:w-3/12">
+          <div className="flex flex-col">
+            <p className="border-b border-lines-1 py-2 px-4 text-secondary-4">
+              Contact info
+            </p>
+            <div className="flex flex-col gap-2 py-2 px-4">
+              <div className="flex">
+                <EnvelopeIcon className="h-6 w-6" />
+                <a href="mailto:yusafsaddiq@gmail.com">
+                  &nbsp;yusafsaddiq@gmail.com
+                </a>
+              </div>
+              <div className="flex">
+                <BriefcaseIcon className="h-6 w-6" />
+                <a href="https://www.linkedin.com/in/yusaf-saddiq-0b1a1b1a8/">
+                  &nbsp;linkedin.com/in/yusaf-saddiq/
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <p className="border-b border-t border-lines-1 py-2 px-4 text-secondary-4">
+              Find me also at
+            </p>
+            <div className="flex flex-col gap-2 py-2 px-4">
+              <div className="flex">
+                <LinkIcon className="h-6 w-6" />
+                <a href="#">&nbsp;Instagram</a>
+              </div>
+              <div className="flex">
+                <LinkIcon className="h-6 w-6" />
+                <a href="#">&nbsp;GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <p className="border-b border-t border-lines-1 py-2 px-4 text-secondary-4">
+              View CV
+            </p>
+            <div className="flex flex-col gap-2 py-2 px-4">
+              <div className="flex">
+                <LinkIcon className="h-6 w-6" />
+                &nbsp;
+                <a className="py-2 px-4 bg-accent-1 rounded-md" href="#">
+                  View CV
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="flex flex-col lg:flex-row md:w-9/12">
           <div className="input-form flex flex-col lg:w-6/12 items-center justify-center">
