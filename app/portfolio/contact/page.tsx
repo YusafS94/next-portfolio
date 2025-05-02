@@ -26,7 +26,7 @@ export default function Page() {
   const handleEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputTextEmail(e.target.value);
   };
-  const handleMessageInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleMessageInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputTextMessage(e.target.value);
   };
 
@@ -70,13 +70,13 @@ export default function Page() {
           </div>
           <div className="flex flex-col">
             <p className="border-b border-t border-lines-1 py-2 px-4 text-secondary-4">
-              View CV
+              Curriculum Vitae
             </p>
             <div className="flex flex-col gap-2 py-2 px-4">
               <div className="flex">
                 <LinkIcon className="h-6 w-6" />
                 &nbsp;
-                <a className="py-2 px-4 bg-accent-1 rounded-md" href="#">
+                <a className="py-2 px-4 bg-accent-1 text-secondary-4 rounded-md" href="#">
                   View CV
                 </a>
               </div>
@@ -84,12 +84,12 @@ export default function Page() {
           </div>
         </div>
         <div className="flex flex-col lg:flex-row md:w-9/12">
-          <div className="input-form flex flex-col lg:w-6/12 items-center justify-center">
-            <div className="text-left">
+          <div className="input-form flex flex-col gap-6 lg:w-6/12 items-center justify-center border-r border-lines-1">
+            <div className="text-left flex flex-col gap-2">
               <h2>_name:</h2>
               {/* Step 3: Input field bound to state */}
               <input
-                className="rounded-lg bg-primary-3"
+                className="rounded-lg bg-primary-3 border-2 border-lines-1"
                 type="text"
                 value={inputTextName}
                 onChange={handleNameInputChange}
@@ -97,11 +97,11 @@ export default function Page() {
                 style={{ padding: "8px", width: "300px" }}
               />
             </div>
-            <div className="text-left">
+            <div className="text-left flex flex-col gap-2">
               <h2>_email:</h2>
               {/* Step 3: Input field bound to state */}
               <input
-                className="rounded-lg bg-primary-3"
+                className="rounded-lg bg-primary-3 border-2 border-lines-1"
                 type="text"
                 value={inputTextEmail}
                 onChange={handleEmailInputChange}
@@ -109,18 +109,18 @@ export default function Page() {
                 style={{ padding: "8px", width: "300px" }}
               />
             </div>
-            <div className="text-left">
+            <div className="text-left flex flex-col gap-2">
               <h2>_message:</h2>
               {/* Step 3: Input field bound to state */}
-              <input
-                className="rounded-lg bg-primary-3"
-                type="text"
+              <textarea
+                className="rounded-lg bg-primary-3 border-2 border-lines-1"
                 value={inputTextMessage}
                 onChange={handleMessageInputChange}
-                placeholder="Start typing..."
-                style={{ padding: "8px", width: "300px" }}
+                placeholder=""
+                style={{ padding: "8px", width: "300px", height: "150px" }}
               />
             </div>
+            <button id="submit-button" type="submit" className="py-2 px-4 bg-lines-1 text-secondary-4 rounded-lg">submit-message</button>
           </div>
           <div className="output flex lg:w-6/12 items-center justify-center">
             {/* Step 4: Display the input text */}
