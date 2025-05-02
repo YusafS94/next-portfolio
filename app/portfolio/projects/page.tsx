@@ -13,8 +13,9 @@ interface Project {
   description?: string;
   imageUrl?: string;
   url?: string;
-  link: string;
-  github: string;
+  live_link?: string;
+  github?: string;
+  case_study?: string;
 }
 
 // Props interface if we need to pass props to this component
@@ -39,8 +40,9 @@ const ProjectsPage = () => {
       description: "This is a sample project description",
       imageUrl: "/images/desktop-dashboard.jpg",
       url: "/portfolio/projects/project/1",
-      link: "https://github.com/YusafS94",
+      live_link: "https://github.com/YusafS94",
       github: "https://github.com/YusafS94",
+      case_study: "https://github.com/YusafS94",
     },
     {
       id: 2,
@@ -49,8 +51,9 @@ const ProjectsPage = () => {
       description: "This is a sample project description",
       imageUrl: "/images/desktop-dashboard.jpg",
       url: "/portfolio/projects/project/2",
-      link: "https://github.com/YusafS94",
+      live_link: "https://github.com/YusafS94",
       github: "https://github.com/YusafS94",
+      case_study: "https://github.com/YusafS94",
     },
     {
       id: 3,
@@ -59,8 +62,9 @@ const ProjectsPage = () => {
       description: "This is a sample project description",
       imageUrl: "/images/desktop-dashboard.jpg",
       url: "/portfolio/projects/project/3",
-      link: "https://github.com/YusafS94",
+      live_link: "https://github.com/YusafS94",
       github: "https://github.com/YusafS94",
+      case_study: "https://github.com/YusafS94",
     },
     {
       id: 4,
@@ -69,8 +73,9 @@ const ProjectsPage = () => {
       description: "This is a sample project description",
       imageUrl: "/images/desktop-dashboard.jpg",
       url: "/portfolio/projects/project/4",
-      link: "https://github.com/YusafS94",
+      live_link: "https://github.com/YusafS94",
       github: "https://github.com/YusafS94",
+      case_study: "https://github.com/YusafS94",
     },
   ];
 
@@ -111,9 +116,7 @@ const ProjectsPage = () => {
       <div className="md:w-3/12 border-r border-lines-1">
         <div className="flex mb-4 border-b border-lines-1 py-2">
           <FunnelIcon className="h-6 w-5 ml-4" />
-          <h2 className="text-md font-bold flex items-center ml-2">
-            filters
-          </h2>
+          <h2 className="text-md font-bold flex items-center ml-2">filters</h2>
         </div>
         <div className="space-y-2 px-4">
           {filterOptions.map((technology: Technology) => (
@@ -137,16 +140,10 @@ const ProjectsPage = () => {
         </h2>
         <div className="flex flex-wrap">
           {filteredProjects.map((project: Project) => (
-            <Link
-              className="w-full lg:w-4/12"
-              href={project.github}
-              target="_blank"
-            >
-              {""}
-
+            <div className="w-full lg:w-4/12">
               <div
                 key={project.id}
-                className="hover:bg-lines-1 h-80 p-4 m-2 rounded-lg border border-lines-1 flex flex-col justify-around"
+                className="h-80 p-4 m-2 rounded-lg border border-lines-1 flex flex-col justify-around"
               >
                 <h3 className="font-bold">{project.title}</h3>
                 <p className="text-sm">{project.description}</p>
@@ -173,8 +170,34 @@ const ProjectsPage = () => {
                     }}
                   />
                 </div>
+                <div className="flex">
+                  <Link
+                    href={project.url || "#"}
+                    className="text-sm text-secondary-4 hover:underline"
+                  >
+                    View Project
+                  </Link>
+                  <a
+                    href={project.live_link || "#"}
+                    className="text-sm text-secondary-4 hover:underline ml-2"
+                  >
+                    Live Link
+                  </a>
+                  <a
+                    href={project.github || "#"}
+                    className="text-sm text-secondary-4 hover:underline ml-2"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href={project.case_study || "#"}
+                    className="text-sm text-secondary-4 hover:underline ml-2"
+                  >
+                    Case Study
+                  </a>
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
