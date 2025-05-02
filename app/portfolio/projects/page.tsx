@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FunnelIcon } from "@heroicons/react/24/outline";
 
 // Define interfaces for our data structures
 interface Project {
@@ -107,16 +108,21 @@ const ProjectsPage = () => {
   return (
     <section className="flex flex-col md:flex-row grow">
       {/* Filters Column */}
-      <div className="md:w-3/12 p-4 border-r border-lines-1">
-        <h2 className="text-lg font-bold mb-4">Filters</h2>
-        <div className="space-y-2">
+      <div className="md:w-3/12 border-r border-lines-1">
+        <div className="flex mb-4 border-b border-lines-1 py-2">
+          <FunnelIcon className="h-6 w-5 ml-4" />
+          <h2 className="text-md font-bold flex items-center ml-2">
+            filters
+          </h2>
+        </div>
+        <div className="space-y-2 px-4">
           {filterOptions.map((technology: Technology) => (
             <label key={technology} className="flex items-center space-x-2">
               <input
                 type="checkbox"
                 checked={selectedFilters.includes(technology)}
                 onChange={() => handleFilterChange(technology)}
-                className="form-checkbox"
+                className="form-checkbox bg-primary-2 border-secondary-1 rounded-sm"
               />
               <span>{technology}</span>
             </label>
@@ -160,7 +166,11 @@ const ProjectsPage = () => {
                     alt="Project Image"
                     width={200}
                     height={0}
-                    style={{ width: "80%", height: "auto", justifySelf: "center" }}
+                    style={{
+                      width: "80%",
+                      height: "auto",
+                      justifySelf: "center",
+                    }}
                   />
                 </div>
               </div>
