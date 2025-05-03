@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FunnelIcon } from "@heroicons/react/24/outline";
+import { FunnelIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 // Define interfaces for our data structures
 interface Project {
@@ -39,7 +39,7 @@ const ProjectsPage = () => {
       technologies: ["React", "TypeScript"],
       description: "This is a sample project description",
       imageUrl: "/images/desktop-dashboard.jpg",
-      url: "/portfolio/projects/project/1",
+      url: "",
       live_link: "https://github.com/YusafS94",
       github: "https://github.com/YusafS94",
       case_study: "https://github.com/YusafS94",
@@ -50,9 +50,9 @@ const ProjectsPage = () => {
       technologies: ["WordPress"],
       description: "This is a sample project description",
       imageUrl: "/images/desktop-dashboard.jpg",
-      url: "/portfolio/projects/project/2",
+      url: "",
       live_link: "https://github.com/YusafS94",
-      github: "https://github.com/YusafS94",
+      github: "",
       case_study: "https://github.com/YusafS94",
     },
     {
@@ -61,7 +61,7 @@ const ProjectsPage = () => {
       technologies: ["React", "Node.js"],
       description: "This is a sample project description",
       imageUrl: "/images/desktop-dashboard.jpg",
-      url: "/portfolio/projects/project/3",
+      url: "",
       live_link: "https://github.com/YusafS94",
       github: "https://github.com/YusafS94",
       case_study: "https://github.com/YusafS94",
@@ -72,7 +72,7 @@ const ProjectsPage = () => {
       technologies: ["WordPress", "PHP"],
       description: "This is a sample project description",
       imageUrl: "/images/desktop-dashboard.jpg",
-      url: "/portfolio/projects/project/4",
+      url: "https://github.com/YusafS94",
       live_link: "https://github.com/YusafS94",
       github: "https://github.com/YusafS94",
       case_study: "https://github.com/YusafS94",
@@ -143,20 +143,8 @@ const ProjectsPage = () => {
             <div className="w-full lg:w-4/12">
               <div
                 key={project.id}
-                className="h-80 p-4 m-2 rounded-lg border border-lines-1 flex flex-col justify-around"
+                className="m-2 rounded-lg border border-lines-1 bg-primary-3 flex flex-col justify-around"
               >
-                <h3 className="font-bold">{project.title}</h3>
-                <p className="text-sm">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {project.technologies.map((tech: string) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-sm bg-gray-100 rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
                 <div className="h-auto max-h-full">
                   <Image
                     src={project.imageUrl || "/images/fallback.jpg"}
@@ -164,38 +152,73 @@ const ProjectsPage = () => {
                     width={200}
                     height={0}
                     style={{
-                      width: "80%",
+                      width: "100%",
                       height: "auto",
                       justifySelf: "center",
                     }}
+                    className="rounded-t-lg object-cover h-40 w-full"
                   />
                 </div>
-                <div className="flex">
-                  <Link
-                    href={project.url || "#"}
-                    className="text-sm text-secondary-4 hover:underline"
-                  >
-                    View Project
-                  </Link>
-                  <a
-                    href={project.live_link || "#"}
-                    className="text-sm text-secondary-4 hover:underline ml-2"
-                  >
-                    Live Link
-                  </a>
-                  <a
-                    href={project.github || "#"}
-                    className="text-sm text-secondary-4 hover:underline ml-2"
-                  >
-                    GitHub
-                  </a>
-                  <a
-                    href={project.case_study || "#"}
-                    className="text-sm text-secondary-4 hover:underline ml-2"
-                  >
-                    Case Study
-                  </a>
+                <div className="p-6 flex flex-col justify-between h-full">
+                  <h3 className="font-bold">{project.title}</h3>
+                  <p className="text-sm">{project.description}</p>
+                
+                {/* <div className="flex flex-wrap gap-2 mt-2">
+                  {project.technologies.map((tech: string) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs bg-gray-100 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div> */}
+                
+                <div className="flex flex-wrap gap-3 mt-4">
+                  {project.url && (
+                    <Link
+                      href={project.url}
+                      className="flex items-center px-3 py-1 text-xs font-medium border border-secondary-4 rounded text-secondary-4 bg-lines-1 hover:bg-secondary-1 hover:text-white transition"
+                    >
+                      view-project
+                    <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block ml-1" />
+                    </Link>
+                  )}
+                  {project.live_link && (
+                    <a
+                      href={project.live_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center px-3 py-1 text-xs font-medium border border-secondary-4 rounded text-secondary-4 bg-lines-1 hover:bg-secondary-1 hover:text-white transition"
+                    >
+                      live
+                      <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block ml-1" />
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center px-3 py-1 text-xs font-medium border border-secondary-4 rounded text-secondary-4 bg-lines-1 hover:bg-secondary-1 hover:text-white transition"
+                    >
+                      github
+                      <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block ml-1" />
+                    </a>
+                  )}
+                  {project.case_study && (
+                    <a
+                      href={project.case_study}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center px-3 py-1 text-xs font-medium border border-secondary-4 rounded text-secondary-4 bg-lines-1 hover:bg-secondary-1 hover:text-white transition"
+                    >
+                      case-study
+                      <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block ml-1" />
+                    </a>
+                  )}
                 </div>
+              </div>
               </div>
             </div>
           ))}
