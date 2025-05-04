@@ -2,7 +2,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FunnelIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import {
+  FunnelIcon,
+  ArrowTopRightOnSquareIcon,
+} from "@heroicons/react/24/outline";
 
 // Define interfaces for our data structures
 interface Project {
@@ -16,6 +19,7 @@ interface Project {
   live_link?: string;
   github?: string;
   case_study?: string;
+  links?: { name: string; link: string }[];
 }
 
 // Props interface if we need to pass props to this component
@@ -39,10 +43,10 @@ const ProjectsPage = () => {
       technologies: ["React", "TypeScript"],
       description: "This is a sample project description",
       imageUrl: "/images/desktop-dashboard.jpg",
-      url: "",
-      live_link: "https://github.com/YusafS94",
-      github: "https://github.com/YusafS94",
-      case_study: "https://github.com/YusafS94",
+      links: [
+        { name: "live", link: "#" },
+        { name: "case-study", link: "#" },
+      ],
     },
     {
       id: 2,
@@ -50,10 +54,7 @@ const ProjectsPage = () => {
       technologies: ["WordPress"],
       description: "This is a sample project description",
       imageUrl: "",
-      url: "",
-      live_link: "https://github.com/YusafS94",
-      github: "",
-      case_study: "https://github.com/YusafS94",
+      links: [{ name: "live", link: "#" }],
     },
     {
       id: 3,
@@ -61,10 +62,10 @@ const ProjectsPage = () => {
       technologies: ["React", "Node.js"],
       description: "This is a sample project description",
       imageUrl: "",
-      url: "",
-      live_link: "https://github.com/YusafS94",
-      github: "https://github.com/YusafS94",
-      case_study: "https://github.com/YusafS94",
+      links: [
+        { name: "live", link: "#" },
+        { name: "case-study", link: "#" },
+      ],
     },
     {
       id: 4,
@@ -72,10 +73,10 @@ const ProjectsPage = () => {
       technologies: ["WordPress", "PHP"],
       description: "This is a sample project description",
       imageUrl: "",
-      url: "https://github.com/YusafS94",
-      live_link: "https://github.com/YusafS94",
-      github: "https://github.com/YusafS94",
-      case_study: "https://github.com/YusafS94",
+      links: [
+        { name: "link", link: "#" },
+        { name: "case-study", link: "#" },
+      ],
     },
   ];
 
@@ -162,8 +163,8 @@ const ProjectsPage = () => {
                 <div className="p-6 flex flex-col justify-between h-full">
                   <h3 className="font-bold">{project.title}</h3>
                   <p className="text-sm">{project.description}</p>
-                
-                {/* <div className="flex flex-wrap gap-2 mt-2">
+
+                  {/* <div className="flex flex-wrap gap-2 mt-2">
                   {project.technologies.map((tech: string) => (
                     <span
                       key={tech}
@@ -173,52 +174,22 @@ const ProjectsPage = () => {
                     </span>
                   ))}
                 </div> */}
-                
-                <div className="flex flex-wrap gap-3 mt-4">
-                  {project.url && (
-                    <Link
-                      href={project.url}
-                      className="flex items-center px-3 py-1 text-xs font-medium border border-secondary-4 rounded text-secondary-4 bg-lines-1 hover:bg-secondary-1 hover:text-white transition"
-                    >
-                      view-project
-                    <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block ml-1" />
-                    </Link>
-                  )}
-                  {project.live_link && (
-                    <a
-                      href={project.live_link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center px-3 py-1 text-xs font-medium border border-secondary-4 rounded text-secondary-4 bg-lines-1 hover:bg-secondary-1 hover:text-white transition"
-                    >
-                      live
-                      <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block ml-1" />
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center px-3 py-1 text-xs font-medium border border-secondary-4 rounded text-secondary-4 bg-lines-1 hover:bg-secondary-1 hover:text-white transition"
-                    >
-                      github
-                      <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block ml-1" />
-                    </a>
-                  )}
-                  {project.case_study && (
-                    <a
-                      href={project.case_study}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center px-3 py-1 text-xs font-medium border border-secondary-4 rounded text-secondary-4 bg-lines-1 hover:bg-secondary-1 hover:text-white transition"
-                    >
-                      case-study
-                      <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block ml-1" />
-                    </a>
-                  )}
+
+                  <div className="flex flex-wrap gap-3 mt-4">
+                    {project.links?.map((link) => (
+                      <Link
+                        key={link.name}
+                        href={link.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center px-3 py-1 text-xs font-medium border border-secondary-4 rounded text-secondary-4 bg-lines-1 hover:bg-secondary-1 hover:text-white transition"
+                      >
+                        {link.name}
+                        <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block ml-1" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           ))}
