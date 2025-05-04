@@ -49,7 +49,7 @@ const ProjectsPage = () => {
       title: "Project 2",
       technologies: ["WordPress"],
       description: "This is a sample project description",
-      imageUrl: "/images/desktop-dashboard.jpg",
+      imageUrl: "",
       url: "",
       live_link: "https://github.com/YusafS94",
       github: "",
@@ -60,7 +60,7 @@ const ProjectsPage = () => {
       title: "Project 3",
       technologies: ["React", "Node.js"],
       description: "This is a sample project description",
-      imageUrl: "/images/desktop-dashboard.jpg",
+      imageUrl: "",
       url: "",
       live_link: "https://github.com/YusafS94",
       github: "https://github.com/YusafS94",
@@ -71,7 +71,7 @@ const ProjectsPage = () => {
       title: "Project 4",
       technologies: ["WordPress", "PHP"],
       description: "This is a sample project description",
-      imageUrl: "/images/desktop-dashboard.jpg",
+      imageUrl: "",
       url: "https://github.com/YusafS94",
       live_link: "https://github.com/YusafS94",
       github: "https://github.com/YusafS94",
@@ -143,20 +143,20 @@ const ProjectsPage = () => {
             <div className="w-full lg:w-4/12">
               <div
                 key={project.id}
-                className="m-2 rounded-lg border border-lines-1 bg-primary-3 flex flex-col justify-around"
+                className="m-2 rounded-3xl border border-lines-1 bg-primary-3 flex flex-col justify-around"
               >
                 <div className="h-auto max-h-full">
                   <Image
-                    src={project.imageUrl || "/images/fallback.jpg"}
+                    src={project.imageUrl || "/images/project-fallback.jpg"}
                     alt="Project Image"
                     width={200}
                     height={0}
                     style={{
                       width: "100%",
-                      height: "auto",
+                      height: "150px",
                       justifySelf: "center",
                     }}
-                    className="rounded-t-lg object-cover h-40 w-full"
+                    className="rounded-t-3xl object-cover h-40 w-full"
                   />
                 </div>
                 <div className="p-6 flex flex-col justify-between h-full">
