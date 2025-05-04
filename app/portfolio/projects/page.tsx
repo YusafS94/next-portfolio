@@ -15,10 +15,6 @@ interface Project {
   // Add other project properties as needed
   description?: string;
   imageUrl?: string;
-  url?: string;
-  live_link?: string;
-  github?: string;
-  case_study?: string;
   links?: { name: string; link: string }[];
 }
 
@@ -29,7 +25,108 @@ interface ProjectsPageProps {
 }
 
 // Technology type to ensure consistent usage
-type Technology = "React" | "WordPress" | "TypeScript" | "Node.js" | "PHP";
+type Technology =
+  | "React"
+  | "Next.js"
+  | "WordPress"
+  | "PHP"
+  | "TypeScript"
+  | "Node.js"
+  | "Tailwind CSS"
+  | "JavaScript"
+  | "Framer"
+  | "Webflow"
+  | "Three.js"
+  | "Spline"
+  | "Figma"
+  | "HTML"
+  | "CSS"
+  | "GitHub"
+  | "Git"
+  | "Vercel"
+  | "Netlify"
+  | "Firebase"
+  | "MongoDB"
+  | "PostgreSQL"
+  | "MySQL"
+  | "Prisma"
+  | "Supabase"
+  | "Cloudinary"
+  | "Stripe"
+  | "Auth0"
+  | "NextAuth.js"
+  | "Socket.io"
+  | "Express.js"
+  | "FastAPI"
+  | "Django"
+  | "Flask"
+  | "GraphQL"
+  | "REST API"
+  | "Tailwind CSS"
+  | "Bootstrap"
+  | "Material UI"
+  | "Chakra UI"
+  | "Ant Design"
+  | "Styled Components"
+  | "Sass/SCSS"
+  | "Less"
+  | "PostCSS"
+  | "Webpack"
+  | "Babel"
+  | "ESLint"
+  | "Prettier"
+  | "Jest"
+  | "React Testing Library"
+  | "Cypress"
+  | "Playwright"
+  | "Puppeteer"
+  | "Storybook"
+  | "Figma"
+  | "Adobe XD"
+  | "Sketch"
+  | "InVision"
+  | "Zeplin"
+  | "Framer Motion"
+  | "GSAP"
+  | "Three.js"
+  | "Babylon.js"
+  | "WebGL"
+  | "Canvas API"
+  | "SVG"
+  | "D3.js"
+  | "Chart.js"
+  | "ECharts"
+  | "Highcharts"
+  | "Plotly.js"
+  | "Leaflet"
+  | "Mapbox"
+  | "OpenStreetMap"
+  | "Google Maps API"
+  | "Firebase Realtime Database"
+  | "Firestore"
+  | "AWS S3"
+  | "AWS Lambda"
+  | "AWS DynamoDB"
+  | "Azure Blob Storage"
+  | "Azure Functions"
+  | "Google Cloud"
+  | "Heroku"
+  | "DigitalOcean"
+  | "Linode"
+  | "Vultr"
+  | "Render.com"
+  | "Marketing"
+  | "SEO"
+  | "Content Creation"
+  | "Social Media Management"
+  | "Email Marketing"
+  | "Google Analytics"
+  | "Ads"
+  | "Affiliate Marketing"
+  | "Influencer Marketing"
+  | "Branding"
+  | "Graphic Design"
+  | "UI/UX Design";
 
 const ProjectsPage = () => {
   // State with type annotation
@@ -87,6 +184,10 @@ const ProjectsPage = () => {
     "TypeScript",
     "Node.js",
     "PHP",
+    "JavaScript",
+    "Tailwind CSS",
+    "Framer",
+    "Three.js",
   ];
 
   // Handler with type annotation
