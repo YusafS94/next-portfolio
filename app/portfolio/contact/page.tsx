@@ -26,7 +26,9 @@ export default function Page() {
   const handleEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputTextEmail(e.target.value);
   };
-  const handleMessageInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleMessageInputChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setInputTextMessage(e.target.value);
   };
 
@@ -76,7 +78,10 @@ export default function Page() {
               <div className="flex">
                 <LinkIcon className="h-6 w-6" />
                 &nbsp;
-                <a className="py-2 px-4 bg-accent-1 text-secondary-4 rounded-md" href="#">
+                <a
+                  className="py-2 px-4 bg-accent-1 text-secondary-4 rounded-md"
+                  href="#"
+                >
                   View CV
                 </a>
               </div>
@@ -93,7 +98,7 @@ export default function Page() {
                 type="text"
                 value={inputTextName}
                 onChange={handleNameInputChange}
-                placeholder="Start typing..."
+                placeholder=""
                 style={{ padding: "8px", width: "300px" }}
               />
             </div>
@@ -105,7 +110,7 @@ export default function Page() {
                 type="text"
                 value={inputTextEmail}
                 onChange={handleEmailInputChange}
-                placeholder="Start typing..."
+                placeholder=""
                 style={{ padding: "8px", width: "300px" }}
               />
             </div>
@@ -120,7 +125,13 @@ export default function Page() {
                 style={{ padding: "8px", width: "300px", height: "150px" }}
               />
             </div>
-            <button id="submit-button" type="submit" className="py-2 px-4 bg-lines-1 text-secondary-4 rounded-lg">submit-message</button>
+            <button
+              id="submit-button"
+              type="submit"
+              className="py-2 px-4 bg-lines-1 text-secondary-4 rounded-lg"
+            >
+              submit-message
+            </button>
           </div>
           <div className="output flex lg:w-6/12 items-center justify-center">
             {/* Step 4: Display the input text */}
