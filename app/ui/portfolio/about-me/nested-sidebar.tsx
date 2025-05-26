@@ -68,18 +68,22 @@ const innerNavItems: InnerNavItems = {
 const placeholderContent: PlaceholderContent = {
   "professional-info": {
     experience:
-      "Experience content goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.",
-    "hard-skills": "Hard skills content goes here.",
-    "soft-skills": "Soft skills content goes here.",
+      "Having studied at the University of Huddersfield in a 4 year sandwich degree in Web Programming, I have gained a wealth of knowledge and experience in the field of web development. My studies have provided me with a strong foundation in both front-end and back-end technologies, allowing me to create dynamic and responsive web applications. Additionally, my sandwich year has given me the opportunity to apply my skills in a real-world setting, further enhancing my understanding of the industry and its best practices.",
+    "hard-skills":
+      "HTML, CSS, JavaScript, React, Next.js, Tailwind, PHP, SQL, Git, Node.js, Express.js, Axios, REST APIs, Webpack, Microservices, TypeScript, Framer, WordPress, WooCommerce, SEO.",
+    "soft-skills":
+      "Customer service, teamwork, communication, problem-solving, adaptability, time management, attention to detail, critical thinking, leadership.",
   },
   "personal-info": {
-    bio: "Bio content goes here.",
-    interests: "Interests content goes here.",
-    education: "Education content goes here.",
+    bio: "A passionate web developer with a strong foundation in both front-end and back-end technologies. I have a keen interest in creating dynamic and responsive web applications that provide an excellent user experience. With a background in web programming from the University of Huddersfield, I am always eager to learn new technologies and improve my skills.",
+    interests:
+      "Martial Arts, Gaming, Technology, True Crime, Fitness, 3D Modelling, Web Development.",
+    education:
+      "13 GCSEs, 3 A-Levels, BSc (Hons) Web Programming from the University of Huddersfield.",
   },
   "hobbies-info": {
-    sports: "Sports content goes here.",
-    "favourite-games": "Favourite games content goes here.",
+    sports: "MMA, UFC, ONE, Bellator.",
+    "favourite-games": "Helldivers 2, Arc Raiders.",
   },
 };
 
@@ -120,12 +124,19 @@ export default function CustomNestedSidebar() {
                 >
                   {outerItem.id}
 
-                  <Image
+                  {/* <Image
                     className="w-6 h-6"
                     src={`/heroicons-solid/${outerItem.icon}.svg`}
                     alt=""
                     width={20}
                     height={20}
+                  /> */}
+                  <ChevronDownIcon
+                    className={`w-4 h-4 ${
+                      activeOuterItem === outerItem.id
+                        ? "text-accent-2 rotate-180"
+                        : "text-accent-1"
+                    }`}
                   />
                 </button>
                 {activeOuterItem === outerItem.id && (
@@ -254,7 +265,12 @@ export default function CustomNestedSidebar() {
                   <p>*</p>
                   <p>*</p>
                   <p>*</p>
-
+                  <p>*</p>
+                  <p>*</p>
+                  <p>*</p>
+                  <p>*</p>
+                  <p>*</p>
+                  <p>*</p>
                   <p>*</p>
                   <p>/*</p>
                 </div>
