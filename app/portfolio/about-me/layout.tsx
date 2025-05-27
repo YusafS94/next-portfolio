@@ -14,8 +14,8 @@ export default function Layout({
           <AboutNav />
         </div> */}
         <div className="flex flex-col lg:flex-row grow">
-          <div className="flex w-full lg:w-1/2">{children}</div>
-          <div className="hidden lg:flex w-full lg:w-1/2 border">{personal_info}</div>
+          <div className="flex w-full lg:w-2/3">{children}</div>
+          <div className="hidden lg:flex flex-col w-full lg:w-1/3 bg-primary-2">{personal_info}</div>
         </div>
       </div>
     </>
