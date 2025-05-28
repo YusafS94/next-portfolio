@@ -89,50 +89,63 @@ export default function Page() {
           </div>
         </div>
         <div className="flex flex-col lg:flex-row md:w-9/12">
-          <div className="input-form flex flex-col gap-6 lg:w-6/12 items-center justify-center border-r border-lines-1">
-            <div className="text-left flex flex-col gap-2">
-              <h2>_name:</h2>
-              {/* Step 3: Input field bound to state */}
-              <input
-                className="rounded-lg bg-primary-3 border-2 border-lines-1"
-                type="text"
-                value={inputTextName}
-                onChange={handleNameInputChange}
-                placeholder=""
-                style={{ padding: "8px", width: "300px" }}
-              />
-            </div>
-            <div className="text-left flex flex-col gap-2">
-              <h2>_email:</h2>
-              {/* Step 3: Input field bound to state */}
-              <input
-                className="rounded-lg bg-primary-3 border-2 border-lines-1"
-                type="text"
-                value={inputTextEmail}
-                onChange={handleEmailInputChange}
-                placeholder=""
-                style={{ padding: "8px", width: "300px" }}
-              />
-            </div>
-            <div className="text-left flex flex-col gap-2">
-              <h2>_message:</h2>
-              {/* Step 3: Input field bound to state */}
-              <textarea
-                className="rounded-lg bg-primary-3 border-2 border-lines-1"
-                value={inputTextMessage}
-                onChange={handleMessageInputChange}
-                placeholder=""
-                style={{ padding: "8px", width: "300px", height: "150px" }}
-              />
-            </div>
-            <button
-              id="submit-button"
-              type="submit"
-              className="py-2 px-4 bg-lines-1 text-secondary-4 rounded-lg"
-            >
-              submit-message
-            </button>
+        {/* Form */}
+          <div className="input-form flex flex-col p-4 gap-6 lg:w-6/12 items-center justify-start border-r border-lines-1">
+            <form action="https://formspree.io/f/mblonpyj" method="POST" className="flex flex-col gap-4">
+              <h1 className="text-secondary-4 text-2xl font-bold">Contact Form</h1>
+              <p className="text-secondary-4">
+                Please fill out the form below to get in touch with me.
+              </p>
+              {/* Step 2: Input fields bound to state */}
+              <label className="text-left flex flex-col gap-2">
+                _name:
+                {/* Step 3: Input field bound to state */}
+                <input
+                  className="rounded-lg bg-primary-3 border-2 border-lines-1"
+                  name="name"
+                  type="text"
+                  value={inputTextName}
+                  onChange={handleNameInputChange}
+                  placeholder=""
+                  required
+                />
+              </label>
+              
+              <label className="text-left flex flex-col gap-2">
+                _email:
+                {/* Step 3: Input field bound to state */}
+                <input
+                  className="rounded-lg bg-primary-3 border-2 border-lines-1"
+                  type="email"
+                  name="email"
+                  value={inputTextEmail}
+                  onChange={handleEmailInputChange}
+                  placeholder=""
+                  required
+                />
+              </label>
+              <label className="text-left flex flex-col gap-2">
+                _message:
+                {/* Step 3: Input field bound to state */}
+                <textarea
+                  className="rounded-lg bg-primary-3 border-2 border-lines-1"
+                  name="message"
+                  value={inputTextMessage}
+                  onChange={handleMessageInputChange}
+                  placeholder=""
+                  required
+                />
+              </label>
+              <button
+                id="submit-button"
+                type="submit"
+                className="py-2 px-4 bg-lines-1 text-secondary-4 rounded-lg"
+              >
+                submit-message
+              </button>
+            </form>
           </div>
+          {/* Code Section */}
           <div className="output flex lg:w-6/12 items-center justify-center">
             {/* Step 4: Display the input text */}
             <div className="border border-lines-1 rounded-xl p-4 bg-primary-1 hidden md:flex flex-row gap-12 overflow-auto">
