@@ -5,6 +5,7 @@ import Image from "next/image";
 import {
   FunnelIcon,
   ArrowTopRightOnSquareIcon,
+  ChevronRightIcon,
 } from "@heroicons/react/24/outline";
 
 // Define interfaces for our data structures
@@ -131,6 +132,7 @@ type Technology =
 const ProjectsPage = () => {
   // State with type annotation
   const [selectedFilters, setSelectedFilters] = useState<Technology[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Sample projects array with type annotation
   const projects: Project[] = [
@@ -216,13 +218,25 @@ const ProjectsPage = () => {
     <section className="flex flex-col md:flex-row grow">
       {/* Filters Column */}
       <div className="md:w-3/12 border-r border-lines-1">
-        <div className="flex mb-4 border-b border-lines-1 py-2">
-          <FunnelIcon className="h-6 w-5 ml-4" />
-          <h2 className="text-md font-bold flex items-center ml-2">filters</h2>
-        </div>
-        <div className="space-y-2 px-4">
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="flex items-center w-full mb-4 border-b border-lines-1 py-2 px-4"
+        >
+          <ChevronRightIcon
+            className={`h-4 w-4 transform transition-transform duration-300 ${
+              isOpen ? "rotate-90" : ""
+            }`}
+          />
+          <h2 className="text-md font-bold ml-2">filters</h2>
+        </button>
+
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-in-out px-4 ${
+            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
           {filterOptions.map((technology: Technology) => (
-            <label key={technology} className="flex items-center space-x-2">
+            <label key={technology} className="flex items-center space-x-4">
               <input
                 type="checkbox"
                 checked={selectedFilters.includes(technology)}
@@ -232,6 +246,18 @@ const ProjectsPage = () => {
               <span>{technology}</span>
             </label>
           ))}
+          {/* ✅ Clear Filters Button */}
+          <button
+            onClick={() => setSelectedFilters([])}
+            disabled={selectedFilters.length === 0}
+            className={`mt-4 text-sm border rounded px-3 py-1 transition ${
+              selectedFilters.length === 0
+                ? "text-gray-400 border-gray-400 cursor-not-allowed"
+                : "text-secondary-4 border-secondary-4 hover:text-white hover:bg-secondary-1"
+            }`}
+          >
+            Clear filters
+          </button>
         </div>
       </div>
 
