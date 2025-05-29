@@ -156,7 +156,7 @@ export default function Page() {
         </div>
         <div className="flex flex-col lg:flex-row lg:w-9/12 overflow-auto">
           {/* Form */}
-          <div className="input-form flex flex-col p-4 gap-6 lg:w-6/12 items-center justify-start lg:border-r border-lines-1">
+          <div className="input-form flex flex-col h-auto p-4 gap-6 lg:w-6/12 items-center justify-center lg:border-r border-lines-1">
             <form
               action="https://formspree.io/f/mblonpyj"
               method="POST"
