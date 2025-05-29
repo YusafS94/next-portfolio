@@ -236,12 +236,12 @@ const ProjectsPage = () => {
           }`}
         >
           {filterOptions.map((technology: Technology) => (
-            <label key={technology} className="flex items-center space-x-4">
+            <label key={technology} className="flex items-center space-x-4 cursor-pointer">
               <input
                 type="checkbox"
                 checked={selectedFilters.includes(technology)}
                 onChange={() => handleFilterChange(technology)}
-                className="form-checkbox bg-primary-2 border-secondary-1 rounded-sm"
+                className="form-checkbox bg-primary-2 border-secondary-1 rounded-sm cursor-pointer focus:ring-2 focus:ring-secondary-4 focus:ring-opacity-50 transition duration-200 ease-in-out"
               />
               <span>{technology}</span>
             </label>
