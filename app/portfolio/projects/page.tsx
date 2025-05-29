@@ -138,9 +138,20 @@ const ProjectsPage = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Project 1",
-      technologies: ["React", "TypeScript"],
-      description: "This is a sample project description",
+      title: "FighterTrax",
+      technologies: ["React", "Tailwind CSS"],
+      description: "API based project for tracking UFC fighters",
+      imageUrl: "/images/desktop-dashboard.jpg",
+      links: [
+        { name: "live", link: "https://fightertrax.netlify.app/" },
+        { name: "case-study", link: "#" },
+      ],
+    },
+    {
+      id: 2,
+      title: "Saddiq Hotels",
+      technologies: ["PHP"],
+      description: "A hotel management system built with PHP",
       imageUrl: "/images/desktop-dashboard.jpg",
       links: [
         { name: "live", link: "#" },
@@ -149,31 +160,12 @@ const ProjectsPage = () => {
     },
     {
       id: 2,
-      title: "Project 2",
-      technologies: ["WordPress"],
-      description: "This is a sample project description",
-      imageUrl: "",
-      links: [{ name: "live", link: "#" }],
-    },
-    {
-      id: 3,
-      title: "Project 3",
-      technologies: ["React", "Node.js"],
-      description: "This is a sample project description",
-      imageUrl: "",
+      title: "Bury Defence Academy",
+      technologies: ["Framer", "Figma", "UI/UX Design"],
+      description: "A design project for a defence academy",
+      imageUrl: "/images/desktop-dashboard.jpg",
       links: [
         { name: "live", link: "#" },
-        { name: "case-study", link: "#" },
-      ],
-    },
-    {
-      id: 4,
-      title: "Project 4",
-      technologies: ["WordPress", "PHP"],
-      description: "This is a sample project description",
-      imageUrl: "",
-      links: [
-        { name: "link", link: "#" },
         { name: "case-study", link: "#" },
       ],
     },
@@ -190,6 +182,12 @@ const ProjectsPage = () => {
     "Tailwind CSS",
     "Framer",
     "Three.js",
+    "Figma",
+    "HTML",
+    "CSS",
+    "GitHub",
+    "Git",
+    "UI/UX Design",
   ];
 
   // Handler with type annotation
@@ -231,12 +229,15 @@ const ProjectsPage = () => {
         </button>
 
         <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out px-4 ${
-            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          className={`flex-col overflow-hidden transition-all duration-300 ease-in-out px-4 ${
+            isOpen ? "flex opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           {filterOptions.map((technology: Technology) => (
-            <label key={technology} className="flex items-center space-x-4 cursor-pointer">
+            <label
+              key={technology}
+              className="flex items-center space-x-4 cursor-pointer"
+            >
               <input
                 type="checkbox"
                 checked={selectedFilters.includes(technology)}
