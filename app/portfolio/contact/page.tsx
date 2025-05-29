@@ -42,7 +42,7 @@ export default function Page() {
   return (
     <div className="w-full">
       <div className="flex flex-col lg:flex-row grow h-full">
-        <div className="flex flex-col border-r border-lines-1 lg:w-3/12">
+        <div className="flex flex-col lg:border-r border-lines-1 lg:w-3/12">
           <div className="flex flex-col">
             <button
               className="border-b border-lines-1 py-2 px-4 font-bold flex items-center"
@@ -156,7 +156,7 @@ export default function Page() {
         </div>
         <div className="flex flex-col lg:flex-row lg:w-9/12 overflow-auto">
           {/* Form */}
-          <div className="input-form flex flex-col p-4 gap-6 lg:w-6/12 items-center justify-start border-r border-lines-1">
+          <div className="input-form flex flex-col p-4 gap-6 lg:w-6/12 items-center justify-start lg:border-r border-lines-1">
             <form
               action="https://formspree.io/f/mblonpyj"
               method="POST"
@@ -216,9 +216,9 @@ export default function Page() {
             </form>
           </div>
           {/* Code Section */}
-          <div className="output flex lg:w-6/12 items-center justify-center">
+          <div className="output flex lg:w-6/12 items-center justify-center text-sm md:text-base md:p-4">
             {/* Step 4: Display the input text */}
-            <div className="border border-lines-1 rounded-xl p-4 bg-primary-1 flex flex-row gap-12 overflow-auto">
+            <div className="border-t md:border border-lines-1 md:rounded-xl p-2 md:p-4 bg-primary-1 flex flex-row gap-4 md:gap-6 overflow-auto">
               <div className="numbers text-right">
                 <p>1</p>
                 <p>2</p>
