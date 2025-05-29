@@ -41,22 +41,32 @@ export default function Page() {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col md:flex-row grow h-full">
-        <div className="flex flex-col border-r border-lines-1 md:w-3/12">
+      <div className="flex flex-col lg:flex-row grow h-full">
+        <div className="flex flex-col border-r border-lines-1 lg:w-3/12">
           <div className="flex flex-col">
             <button
               className="border-b border-lines-1 py-2 px-4 font-bold flex items-center"
-              onClick={() => setOpenSections((prev) => ({
-                ...prev,
-                contacts: !prev.contacts,
-                findMeAlsoAt: false,
-                cv: false,
-              }))}
+              onClick={() =>
+                setOpenSections((prev) => ({
+                  ...prev,
+                  contacts: !prev.contacts,
+                  findMeAlsoAt: false,
+                  cv: false,
+                }))
+              }
             >
-              <ChevronRightIcon className={`h-4 w-4 inline-block mr-2 transform transition-transform duration-300 ${openSections.contacts ? "rotate-90" : ""}`} />
+              <ChevronRightIcon
+                className={`h-4 w-4 inline-block mr-2 transform transition-transform duration-300 ${
+                  openSections.contacts ? "rotate-90" : ""
+                }`}
+              />
               contacts
             </button>
-            <div className={`gap-2 py-2 px-4 transition-all duration-300 ease-in-out ${openSections.contacts ? "block" : "hidden"}`}>
+            <div
+              className={`gap-2 py-2 px-4 transition-all duration-300 ease-in-out ${
+                openSections.contacts ? "block" : "hidden"
+              }`}
+            >
               <div className="flex items-center">
                 <EnvelopeIcon className="h-5 w-5" />
                 <a href="mailto:yusafsaddiq@gmail.com">&nbsp;Email</a>
@@ -76,14 +86,20 @@ export default function Page() {
           <div className="flex flex-col">
             <button
               className="border-b border-lines-1 py-2 px-4 font-bold flex items-center"
-              onClick={() => setOpenSections((prev) => ({
-                ...prev,
-                contacts: false,
-                findMeAlsoAt: !prev.findMeAlsoAt,
-                cv: false,
-              }))}
+              onClick={() =>
+                setOpenSections((prev) => ({
+                  ...prev,
+                  contacts: false,
+                  findMeAlsoAt: !prev.findMeAlsoAt,
+                  cv: false,
+                }))
+              }
             >
-              <ChevronRightIcon className={`h-4 w-4 inline-block mr-2 transform transition-transform duration-300 ${openSections.findMeAlsoAt ? "rotate-90" : ""}`} />
+              <ChevronRightIcon
+                className={`h-4 w-4 inline-block mr-2 transform transition-transform duration-300 ${
+                  openSections.findMeAlsoAt ? "rotate-90" : ""
+                }`}
+              />
               find-me-also-at
             </button>
             <div
@@ -104,14 +120,20 @@ export default function Page() {
           <div className="flex flex-col">
             <button
               className="border-b border-lines-1 py-2 px-4 font-bold flex items-center"
-              onClick={() => setOpenSections((prev) => ({
-                ...prev,
-                contacts: false,
-                findMeAlsoAt: false,
-                cv: !prev.cv,
-              }))}
+              onClick={() =>
+                setOpenSections((prev) => ({
+                  ...prev,
+                  contacts: false,
+                  findMeAlsoAt: false,
+                  cv: !prev.cv,
+                }))
+              }
             >
-              <ChevronRightIcon className={`h-4 w-4 inline-block mr-2 transform transition-transform duration-300 ${openSections.cv ? "rotate-90" : ""}`} />
+              <ChevronRightIcon
+                className={`h-4 w-4 inline-block mr-2 transform transition-transform duration-300 ${
+                  openSections.cv ? "rotate-90" : ""
+                }`}
+              />
               cv
             </button>
             <div
@@ -132,7 +154,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row md:w-9/12">
+        <div className="flex flex-col lg:flex-row lg:w-9/12 overflow-auto">
           {/* Form */}
           <div className="input-form flex flex-col p-4 gap-6 lg:w-6/12 items-center justify-start border-r border-lines-1">
             <form
@@ -140,9 +162,7 @@ export default function Page() {
               method="POST"
               className="flex flex-col gap-4"
             >
-              <h1 className=" text-2xl font-bold">
-                Contact Form
-              </h1>
+              <h1 className=" text-2xl font-bold">Contact Form</h1>
               <p className="">
                 Please fill out the form below to get in touch with me.
               </p>
@@ -198,7 +218,7 @@ export default function Page() {
           {/* Code Section */}
           <div className="output flex lg:w-6/12 items-center justify-center">
             {/* Step 4: Display the input text */}
-            <div className="border border-lines-1 rounded-xl p-4 bg-primary-1 hidden md:flex flex-row gap-12 overflow-auto">
+            <div className="border border-lines-1 rounded-xl p-4 bg-primary-1 flex flex-row gap-12 overflow-auto">
               <div className="numbers text-right">
                 <p>1</p>
                 <p>2</p>
