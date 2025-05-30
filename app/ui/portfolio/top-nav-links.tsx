@@ -42,7 +42,7 @@ export default function TopNavLinks({ isOpen, setIsOpen }: TopNavLinksProps) {
   // const [isOpen, setIsOpen] = useState(false); // State to toggle TopNavLinks
   return (
     <>
-      <div className="flex flex-col md:flex-row h-full justify-evenly">
+      <div className="flex flex-col md:flex-row h-96 md:h-auto justify-around">
         {links.map((link) => {
           const LinkIcon = link.icon;
           return (

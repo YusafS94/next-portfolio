@@ -36,7 +36,7 @@ export default function TopNav() {
 
       {/* Navigation Links (Toggles on small screens, always visible on md+) */}
       <div
-        className={`flex grow h-screen md:h-auto flex-col md:flex-row justify-start transition-all duration-300 ${
+        className={`flex grow md:h-auto flex-col md:flex-row justify-start transition-all duration-300 ${
           isOpen ? "block" : "hidden"
         } md:flex`}
       >
