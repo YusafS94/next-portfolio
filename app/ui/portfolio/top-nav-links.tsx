@@ -42,26 +42,43 @@ export default function TopNavLinks({ isOpen, setIsOpen }: TopNavLinksProps) {
   // const [isOpen, setIsOpen] = useState(false); // State to toggle TopNavLinks
   return (
     <>
-      {links.map((link) => {
-        const LinkIcon = link.icon;
-        return (
-          <Link
-            key={link.name}
-            href={link.href}
-            onClick={() => setIsOpen(!isOpen)} // Close the menu when a link is clicked
-            className={clsx(
-              `${link.styles} flex h-[48px] grow items-center justify-center gap-2 p-3 text-sm font-medium hover:text-secondary-4 md:flex-none md:justify-start md:p-2 md:px-3 border-solid hover:border-b-2 border-lines-1 hover:border-b-orange-600 hover:bg-lines-1`,
-              {
-                "border-b-2 border-b-orange-600 text-secondary-4":
-                  pathname === link.href,
-              }
-            )}
-          >
-            {/* <LinkIcon className="w-6" /> */}
-            <p className="">{link.name}</p>
-          </Link>
-        );
-      })}
+      <div className="flex flex-col md:flex-row h-full justify-evenly">
+        {links.map((link) => {
+          const LinkIcon = link.icon;
+          return (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(!isOpen)} // Close the menu when a link is clicked
+              className={clsx(
+                `${link.styles} flex md:h-[48px] items-center justify-center p-2 md:p-3 text-sm font-normal hover:text-secondary-4 md:flex-none md:justify-start border-solid hover:border-b-2 border-lines-1 hover:border-b-orange-600 hover:bg-lines-1`,
+                {
+                  "border-b-2 border-b-orange-600 text-secondary-4":
+                    pathname === link.href,
+                }
+              )}
+            >
+              {/* <LinkIcon className="w-6" /> */}
+              <p className="">{link.name}</p>
+            </Link>
+          );
+        })}
+        <Link
+          className={clsx(
+            "flex justify-start items-center md:border-l border-lines-1 p-2 md:p-0 text-sm",
+            {
+              "border-b-2 border-b-orange-600 text-secondary-4":
+                pathname === "/portfolio/contact",
+            }
+          )}
+          href="/portfolio/contact"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div className="md:hidden text-sm rounded-tr-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full px-4 flex justify-center items-center text-center">
+            <p>_contact-me</p>
+          </div>
+        </Link>
+      </div>
     </>
   );
 }

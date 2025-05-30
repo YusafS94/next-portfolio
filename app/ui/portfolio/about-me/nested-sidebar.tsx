@@ -140,7 +140,7 @@ export default function CustomNestedSidebar() {
                   />
                 </button>
                 {activeOuterItem === outerItem.id && (
-                  <ul className="ml-4 mt-2 space-y-2">
+                  <ul className="space-y-2">
                     {innerNavItems[outerItem.id].map((innerItem) => (
                       <li key={innerItem.id}>
                         <button
