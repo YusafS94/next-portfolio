@@ -16,15 +16,15 @@ export default function TopNav() {
       id="topnav"
       className="md:flex h-full flex-col md:flex-row border-b border-lines-1"
     >
-      <div className="flex justify-between p-4 md:p-0 items-center md:items-center md:justify-start w-full md:w-auto">
+      <div className="flex justify-between p-2 md:p-0 items-center md:justify-center w-full md:w-auto">
         {/* Logo */}
-        <Link className="" href="/portfolio">
-          <div className="rounded-tl-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full md:pr-20 flex justify-start items-center text-center">
-            <h1>logo</h1>
+        <Link className="flex justify-center h-full" href="/portfolio">
+          <div className="rounded-tl-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full md:pr-20 md:pl-4 flex justify-center items-center text-center">
+            <h1>yusaf-saddiq</h1>
           </div>
         </Link>
         {/* Hamburger Icon (Visible only on small screens) */}
-        <div className="self-end md:hidden">
+        <div className="flex self-end md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="w-8 h-8 text-secondary-4"
