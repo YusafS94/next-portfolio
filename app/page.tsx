@@ -3,19 +3,19 @@ import Link from "next/link";
 
 export default function GlitchSplash() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-primary-1 text-white font-mono px-6">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-primary-1 text-secondary-4 font-mono px-6">
       <h1
         className="text-4xl md:text-5xl font-bold relative glitch"
         data-text="Yusaf Saddiq"
       >
         Yusaf Saddiq
       </h1>
-      <p className="mt-2 text-sm text-gray-400">
+      <p className="mt-2 text-sm text-center">
         Frontend Developer // Digital Tinkerer
       </p>
       <Link
         href="/portfolio"
-        className="mt-6 inline-block bg-accent-1 hover:bg-accent-3 text-primary-1 py-2 px-6 rounded transition"
+        className="mt-6 inline-block hover:bg-accent-1 bg-primary-2 hover:text-primary-1 text-secondary-4 py-2 px-6 rounded transition"
       >
         ⚡ Enter Portfolio
       </Link>
