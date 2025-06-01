@@ -6,6 +6,10 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    'animate-pulse',
+    'animate-bounce',
+  ],
   theme: {
     borderWidth: {
       DEFAULT: "1px",

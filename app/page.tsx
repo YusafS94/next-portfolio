@@ -1,34 +1,86 @@
+"use client";
 import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
-const terminalLines = [
-  "> Initializing developer environment...",
-  "> Fetching latest portfolio modules...",
-  "> Establishing secure connection...",
-  "> Welcome to Yusaf's Portfolio.",
-  "> Type 'start' or click to enter the system.",
-];
-
-export default function Page() {
+export default function GlitchSplash() {
   return (
-    <main className="min-h-screen bg-primary-1 text-accent-2 font-mono flex flex-col items-center justify-center px-4">
-      <div className="w-full max-w-lg text-start space-y-2 bg-primary-2 p-8 rounded-lg">
-        {terminalLines.map((line, idx) => (
-          <p key={idx} className="whitespace-pre-wrap text-base md:text-lg">
-            {line}
-          </p>
-        ))}
-      </div>
+    <main className="min-h-screen flex flex-col items-center justify-center bg-primary-1 text-white font-mono px-6">
+      <h1
+        className="text-4xl md:text-5xl font-bold relative glitch"
+        data-text="Yusaf Saddiq"
+      >
+        Yusaf Saddiq
+      </h1>
+      <p className="mt-2 text-sm text-gray-400">
+        Frontend Developer // Digital Tinkerer
+      </p>
+      <Link
+        href="/portfolio"
+        className="mt-6 inline-block bg-accent-1 hover:bg-accent-3 text-primary-1 py-2 px-6 rounded transition"
+      >
+        ⚡ Enter Portfolio
+      </Link>
 
-      <div className="mt-10">
-        <Link
-          href="/portfolio"
-          className="inline-flex items-center gap-2 rounded-lg bg-accent-1 px-6 py-3 text-sm font-bold uppercase text-black transition hover:bg-accent-2 md:text-base"
-        >
-          ▶ Enter Portfolio
-          <ArrowRightIcon className="w-5 md:w-6" />
-        </Link>
-      </div>
+      <style jsx>{`
+        .glitch {
+          position: relative;
+          color: white;
+        }
+        .glitch::before,
+        .glitch::after {
+          content: attr(data-text);
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          overflow: hidden;
+          animation: glitch 1s infinite;
+        }
+        .glitch::before {
+          left: 2px;
+          text-shadow: -1px 0 red;
+          animation-delay: 0.1s;
+        }
+        .glitch::after {
+          left: -2px;
+          text-shadow: 1px 0 blue;
+          animation-delay: 0.2s;
+        }
+        @keyframes glitch {
+          0% {
+            clip-path: inset(80% 0 0 0);
+          }
+          10% {
+            clip-path: inset(10% 0 85% 0);
+          }
+          20% {
+            clip-path: inset(10% 0 75% 0);
+          }
+          30% {
+            clip-path: inset(40% 0 50% 0);
+          }
+          40% {
+            clip-path: inset(0 0 20% 0);
+          }
+          50% {
+            clip-path: inset(20% 0 20% 0);
+          }
+          60% {
+            clip-path: inset(80% 0 0 0);
+          }
+          70% {
+            clip-path: inset(10% 0 85% 0);
+          }
+          80% {
+            clip-path: inset(10% 0 75% 0);
+          }
+          90% {
+            clip-path: inset(40% 0 50% 0);
+          }
+          100% {
+            clip-path: inset(0 0 20% 0);
+          }
+        }
+      `}</style>
     </main>
   );
 }

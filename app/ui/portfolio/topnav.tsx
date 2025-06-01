@@ -18,7 +18,7 @@ export default function TopNav() {
     >
       <div className="flex justify-between p-2 md:p-0 items-center md:justify-center w-full md:w-auto">
         {/* Logo */}
-        <Link className="flex justify-center h-full" href="/portfolio">
+        <Link className="flex justify-center h-full" href="/">
           <div className="rounded-tl-lg hover:bg-lines-1 hover:text-secondary-4 w-full h-full md:pr-20 md:pl-4 flex justify-center items-center text-center">
             <h1>yusaf-saddiq</h1>
           </div>
