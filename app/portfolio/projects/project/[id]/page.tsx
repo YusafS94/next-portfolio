@@ -1,5 +1,5 @@
 import Project from "@/app/ui/portfolio/projects/Project";
-import { projects } from "@/app/lib/placeholder-data";
+import { projects } from "@/app/lib/project-data";
 export default async function Page({
   params,
 }: {
