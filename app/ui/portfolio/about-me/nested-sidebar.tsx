@@ -8,6 +8,35 @@ import {
   FolderPlusIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Bio from "@/app/ui/portfolio/about-me/bio";
+import Interests from "@/app/ui/portfolio/about-me/interests";
+import Education from "@/app/ui/portfolio/about-me/education";
+import Experience from "@/app/ui/portfolio/about-me/experience";
+import HardSkills from "@/app/ui/portfolio/about-me/hard-skills";
+import SoftSkills from "@/app/ui/portfolio/about-me/soft-skills";
+import Sports from "@/app/ui/portfolio/about-me/sports";
+import FavouriteGames from "@/app/ui/portfolio/about-me/favourite-games";
+
+export const contentComponents: {
+  [outerId: string]: {
+    [innerId: string]: React.ReactNode;
+  };
+} = {
+  "professional-info": {
+    experience: <Experience />,
+    "hard-skills": <HardSkills />,
+    "soft-skills": <SoftSkills />,
+  },
+  "personal-info": {
+    bio: <Bio />,
+    interests: <Interests />,
+    education: <Education />,
+  },
+  "hobbies-info": {
+    sports: <Sports />,
+    "favourite-games": <FavouriteGames />,
+  },
+};
 
 type OuterNavItem = {
   id: string;
@@ -22,12 +51,6 @@ type InnerNavItem = {
 
 type InnerNavItems = {
   [key: string]: InnerNavItem[];
-};
-
-type PlaceholderContent = {
-  [key: string]: {
-    [key: string]: string;
-  };
 };
 
 const outerNavItems: OuterNavItem[] = [
@@ -63,28 +86,6 @@ const innerNavItems: InnerNavItems = {
     { id: "sports", label: "Sports" },
     { id: "favourite-games", label: "Favourite Games" },
   ],
-};
-
-const placeholderContent: PlaceholderContent = {
-  "professional-info": {
-    experience:
-      "Having studied at the University of Huddersfield in a 4 year sandwich degree in Web Programming, I have gained a wealth of knowledge and experience in the field of web development. My studies have provided me with a strong foundation in both front-end and back-end technologies, allowing me to create dynamic and responsive web applications. Additionally, my sandwich year has given me the opportunity to apply my skills in a real-world setting, further enhancing my understanding of the industry and its best practices.",
-    "hard-skills":
-      "HTML, CSS, JavaScript, React, Next.js, Tailwind, PHP, SQL, Git, Node.js, Express.js, Axios, REST APIs, Webpack, Microservices, TypeScript, Framer, WordPress, WooCommerce, SEO.",
-    "soft-skills":
-      "Customer service, teamwork, communication, problem-solving, adaptability, time management, attention to detail, critical thinking, leadership.",
-  },
-  "personal-info": {
-    bio: "A passionate web developer with a strong foundation in both front-end and back-end technologies. I have a keen interest in creating dynamic and responsive web applications that provide an excellent user experience. With a background in web programming from the University of Huddersfield, I am always eager to learn new technologies and improve my skills.",
-    interests:
-      "Martial Arts, Gaming, Technology, True Crime, Fitness, 3D Modelling, Web Development.",
-    education:
-      "13 GCSEs, 3 A-Levels, BSc (Hons) Web Programming from the University of Huddersfield.",
-  },
-  "hobbies-info": {
-    sports: "MMA, UFC, ONE, Bellator.",
-    "favourite-games": "Helldivers 2, Arc Raiders.",
-  },
 };
 
 export default function CustomNestedSidebar() {
@@ -123,14 +124,6 @@ export default function CustomNestedSidebar() {
                   className="w-full text-left p-2 flex justify-between items-center bg-gray-800 hover:bg-gray-700"
                 >
                   {outerItem.id}
-
-                  {/* <Image
-                    className="w-6 h-6"
-                    src={`/heroicons-solid/${outerItem.icon}.svg`}
-                    alt=""
-                    width={20}
-                    height={20}
-                  /> */}
                   <ChevronDownIcon
                     className={`w-4 h-4 ${
                       activeOuterItem === outerItem.id
@@ -174,7 +167,9 @@ export default function CustomNestedSidebar() {
           {activeInnerItem && activeOuterItem && (
             <div>
               <h1 className="text-2xl font-bold mb-4">{activeInnerItem}</h1>
-              <p>{placeholderContent[activeOuterItem][activeInnerItem]}</p>
+              {contentComponents[activeOuterItem]?.[activeInnerItem] ?? (
+                <p className="text-gray-400">No content available.</p>
+              )}
             </div>
           )}
         </main>
@@ -257,26 +252,9 @@ export default function CustomNestedSidebar() {
                 </div>
               </div>
               <div className="flex gap-2 p-4 bg-primary-3 h-full">
-                <div className="flex flex-col items-end">
-                  <p>/*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>*</p>
-                  <p>/*</p>
-                </div>
-                <div className="">
-                  <p>{placeholderContent[activeOuterItem][activeInnerItem]}</p>
-                </div>
+                {contentComponents[activeOuterItem]?.[activeInnerItem] ?? (
+                  <p className="text-gray-400">No content available.</p>
+                )}
               </div>
             </div>
           )}

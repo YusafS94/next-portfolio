@@ -39,7 +39,7 @@ export default function Page() {
 
       <div className="h-auto flex flex-col self-center p-6 gap-2 border border-lines-1 md:w-96 mb-8 lg:mb-0">
         <h3 className="text-lg underline underline-offset-4">What do I do?</h3>
-        <p className="text-base">
+        <p className="text-base text-secondary-4">
           I build custom websites that blend clean code, thoughtful{" "}
           <span className="font-bold text-accent-4">UX</span>, and creative
           flair. From marketing sites to interactive experiences, I work with{" "}
