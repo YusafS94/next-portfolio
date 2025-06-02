@@ -10,8 +10,8 @@ export default function Footer() {
           <Link href="/portfolio/terms-of-use">terms-of-use</Link>
         </li>
       </ul>
-      <div className="font-normal text-secondary-1">
-        <span>© Copyright Yusaf Saddiq 2025 - {new Date().getFullYear()} </span>
+      <div className="flex items-center justify-center font-normal text-secondary-1">
+        <span className="flex items-center justify-center font-normal text-secondary-1">© copyright Yusaf Saddiq 2025 - {new Date().getFullYear()} </span>
       </div>
       <div className="">
         <a

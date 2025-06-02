@@ -15,7 +15,7 @@ export default function GlitchSplash() {
       </p>
       <Link
         href="/portfolio"
-        className="mt-6 inline-block hover:bg-accent-1 bg-primary-2 hover:text-primary-1 text-secondary-4 py-2 px-6 rounded transition"
+        className="mt-6 inline-block shadow-sm shadow-primary-2 hover:shadow-accent-1 border border-accent-1 hover:bg-accent-1 bg-primary-2 hover:text-primary-1 text-secondary-4 py-2 px-6 rounded transition"
       >
         ⚡ Enter Portfolio
       </Link>
