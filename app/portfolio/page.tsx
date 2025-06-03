@@ -8,7 +8,7 @@ export default function Page() {
           <h1 className="text-4xl md:text-6xl">Yusaf Saddiq</h1>
           <p className="text-lg md:text-2xl text-secondary-3">
             {" "}
-            &gt; Web Developer
+            &gt; Front End Developer
           </p>
           <p className="text-lg md:text-2xl text-secondary-3">
             {" "}
