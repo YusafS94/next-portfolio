@@ -166,7 +166,7 @@ export default function CustomNestedSidebar() {
         <main className="p-4">
           {activeInnerItem && activeOuterItem && (
             <div>
-              <h1 className="text-2xl font-bold mb-4">{activeInnerItem}</h1>
+              <h1 className="text-xl md:text-2xl font-bold mb-4 underline">{activeInnerItem}</h1>
               {contentComponents[activeOuterItem]?.[activeInnerItem] ?? (
                 <p className="text-gray-400">No content available.</p>
               )}
@@ -251,7 +251,8 @@ export default function CustomNestedSidebar() {
                   &nbsp; &nbsp; &#120;
                 </div>
               </div>
-              <div className="flex gap-2 p-4 bg-primary-3 h-full">
+              <div className="p-4 bg-primary-3 h-full">
+                <h1 className="text-xl md:text-2xl font-bold mb-4 underline">{activeInnerItem}</h1>
                 {contentComponents[activeOuterItem]?.[activeInnerItem] ?? (
                   <p className="text-gray-400">No content available.</p>
                 )}

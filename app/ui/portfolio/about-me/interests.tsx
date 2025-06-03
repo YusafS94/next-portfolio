@@ -1,7 +1,7 @@
 export default function Interests() {
   return (
-    <div className="flex flex-col items-center justify-center h-full">
-      <h1 className="text-2xl font-bold mb-4">Interests</h1>
+    <div className="h-full">
+      {/* <h1 className="text-2xl font-bold mb-4">Interests</h1> */}
       <ul>
         <li>Martial Arts</li>
         <li>Gaming</li>

@@ -1,7 +1,7 @@
 export default function SoftSkills() {
   return (
-    <div className="flex flex-col items-center justify-center h-full">
-      <h1 className="text-2xl font-bold mb-4">Soft Skills</h1>
+    <div className="h-full">
+      {/* <h1 className="text-2xl font-bold mb-4">Soft Skills</h1> */}
       <ul>
         <li>Customer service</li>
         <li>Teamwork</li>

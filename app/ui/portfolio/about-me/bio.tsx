@@ -1,8 +1,8 @@
 export default function Bio() {
   return (
-    <div className="flex flex-col items-center justify-center h-full">
-      <h1 className="text-2xl font-bold mb-4">Bio</h1>
-      <p className="text-lg text-gray-700">
+    <div className="h-full">
+      {/* <h1 className="text-2xl font-bold mb-4">Bio</h1> */}
+      <p className="">
         A passionate web developer with a strong foundation in both front-end
         and back-end technologies. I have a keen interest in creating dynamic
         and responsive web applications that provide an excellent user

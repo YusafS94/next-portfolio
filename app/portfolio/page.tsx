@@ -1,14 +1,18 @@
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 export default function Page() {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-around w-10/12 lg:w-4/5 mx-auto overflow-auto">
+    <div className="flex flex-col lg:flex-row items-center justify-around lg:w-4/5 mx-auto overflow-auto">
       <div className="flex flex-col items-start h-96 justify-evenly text-start p-4">
         <div className="flex flex-col gap-2 hero-top-text w-full text-secondary-4">
           <p className="text-base">Hi, I'm</p>
           <h1 className="text-4xl md:text-6xl">Yusaf Saddiq</h1>
-          <p className="text-lg md:text-4xl text-secondary-3">
+          <p className="text-lg md:text-2xl text-secondary-3">
             {" "}
             &gt; Web Developer
+          </p>
+          <p className="text-lg md:text-2xl text-secondary-3">
+            {" "}
+            &gt; Digital Tinkerer
           </p>
           <p>
             Building fast, accessible websites that deliver seamless,
