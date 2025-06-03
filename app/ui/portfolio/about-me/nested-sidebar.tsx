@@ -111,24 +111,24 @@ export default function CustomNestedSidebar() {
   };
 
   return (
-    <div className="border-r border-lines-1 bg-primary-3 w-full">
+    <div className="border-r border-lines-1 bg-primary-2  w-full">
       {/* Mobile Navigation (visible up to md breakpoint) */}
       <div className="md:hidden">
-        <nav className="text-white p-0">
+        <nav className="text-secondary-4 p-0">
           {/* <h2 className="text-xl font-bold mb-4">Nested Sidebar</h2> */}
-          <ul className="space-y-2">
+          <ul className="">
             {outerNavItems.map((outerItem, item) => (
-              <li key={outerItem.id}>
+              <li key={outerItem.id} className="border-b border-primary-2">
                 <button
                   onClick={() => toggleOuterItem(outerItem.id)}
-                  className="w-full text-left p-2 flex justify-between items-center bg-gray-800 hover:bg-gray-700"
+                  className="w-full text-left p-2 flex justify-between items-center bg-primary-2 hover:bg-secondary-1"
                 >
                   {outerItem.id}
                   <ChevronDownIcon
                     className={`w-4 h-4 ${
                       activeOuterItem === outerItem.id
                         ? "text-accent-2 rotate-180"
-                        : "text-accent-1"
+                        : "text-accent-1 -rotate-90"
                     }`}
                   />
                 </button>
@@ -141,14 +141,14 @@ export default function CustomNestedSidebar() {
                           className={`w-full text-left p-2 rounded flex items-center gap-2 ${
                             activeInnerItem === innerItem.id
                               ? "border-b border-accent-1 rounded-none"
-                              : "hover:bg-gray-700"
+                              : "hover:bg-secondary-1"
                           }`}
                         >
-                          <span className="text-xl">
+                          <span className="ml-1">
                             {activeInnerItem === innerItem.id ? (
-                              <FolderIcon className="w-4 h-4 text-accent-2" />
+                              <ChevronDownIcon className="w-4 h-4 text-accent-2" />
                             ) : (
-                              <FolderPlusIcon className="w-4 h-4 text-accent-1" />
+                              <ChevronDownIcon className="w-4 h-4 text-accent-1 -rotate-90" />
                             )}
                           </span>
                           {innerItem.id}
@@ -163,10 +163,12 @@ export default function CustomNestedSidebar() {
         </nav>
 
         {/* Mobile Content area */}
-        <main className="p-4">
+        <main className="p-4 bg-primary-3">
           {activeInnerItem && activeOuterItem && (
             <div>
-              <h1 className="text-xl md:text-2xl font-bold mb-4 underline">{activeInnerItem}</h1>
+              <h1 className="text-xl md:text-2xl font-bold mb-4 underline">
+                {activeInnerItem}
+              </h1>
               {contentComponents[activeOuterItem]?.[activeInnerItem] ?? (
                 <p className="text-gray-400">No content available.</p>
               )}
@@ -252,7 +254,7 @@ export default function CustomNestedSidebar() {
                 </div>
               </div>
               <div className="p-4 bg-primary-3 h-full">
-                <h1 className="text-xl md:text-2xl font-bold mb-4 underline">{activeInnerItem}</h1>
+                {/* <h1 className="text-xl md:text-2xl font-bold mb-4 underline">{activeInnerItem}</h1> */}
                 {contentComponents[activeOuterItem]?.[activeInnerItem] ?? (
                   <p className="text-gray-400">No content available.</p>
                 )}
